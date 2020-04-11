@@ -22,9 +22,9 @@ Predict each type of crime based on weather conditions
 Map with filters of crime type and date that shows clustures of crime in area
 
 A forecast of likelihood of crime occuring based on today's weather
-
+![image2](daily_outlook.png)
 Correlation matrix showing crime and weather
- 
+ ![image](corr_matrix.png)
 ## Data sources: 
 Crime Data: Atlanta Police Department Open Data (http://opendataportal.azurewebsites.us/Crimedata/Default.aspx)
 Note- crime data gives street and neighborhood, but not zip. We will need to convert to get the lat/lon https://www.gps-coordinates.net/gps-coordinates-converter
