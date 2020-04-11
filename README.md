@@ -15,9 +15,13 @@ Research supporting our hypothesis: https://www.researchgate.net/publication/249
 
 ## Visualizations
 Map that shows changes of crime over time
+
 Predict each type of crime based on weather conditions
+
 Map with filters of crime type and date that shows clustures of crime in area
+
 A forecast of likelihood of crime occuring based on today's weather
+
 Correlation matrix showing crime and weather
  
 ## Data sources: 
