@@ -1,6 +1,9 @@
+import sys
 import pandas as pd
 import boto3
 from botocore.exceptions import ClientError
+
+sys.path.append("..")
 from config import awskey
 from config import secret
 
