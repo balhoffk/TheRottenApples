@@ -1,6 +1,6 @@
-**config.py
-**config.js
-**api_keys.py
+**/config.py
+**/config.js
+**/api_keys.py
 *.ini
 **/__pycache__
 **/.ipynb_checkpoints
