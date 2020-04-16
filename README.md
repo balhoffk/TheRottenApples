@@ -1,6 +1,7 @@
 <h1 align = "center">THE Rotten Apples</h1>
 
-![image rotten apple](/images/rotten_apple_gif.gif)
+
+<img src = "/images/rotten_apple_gif.gif" width = "1000" height = "300">
 ## Team Members:
 Jackie Kamprath | Kevin Balhoff | Kannan Sekkappan | Ethan Martin | Candice Sessa | Georgia Leigh
 
