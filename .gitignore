@@ -1,0 +1,11 @@
+**/config.py
+**/config.js
+**/api_keys.py
+*.ini
+**/__pycache__
+**/.ipynb_checkpoints
+backup/**
+temp/**
+*.bak
+*.csv
+
