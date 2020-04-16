@@ -3,14 +3,14 @@
 
 <img src = "/images/rotten_apple_gif.gif" width = "1000" height = "300">
 
-## Team Members:
+## Team Members
 Jackie Kamprath | Kevin Balhoff | Kannan Sekkappan | Ethan Martin | Candice Sessa | Georgia Leigh
 
-## Thesis: 
+## Thesis
 We hypothesize that weather conditions impact the level of crime. We suggest that the impact weather has on crime is not consistent amongst all types of crime, with some crime increasing when weather conditions encourages individuals to stay home(domestic violence) and other crime decreases when weather conditions encourage individuals to leave the home (home burglary)
 Research supporting our hypothesis: https://www.researchgate.net/publication/249622050_An_Analysis_of_the_Relationship_between_Weather_and_Aggressive_Crime_in_Cleveland_Ohio
 
-## Premise: 
+## Premise 
 We are investigating the effects weather has on crime. We will be creating a dashboard that shows several visualizations (listed below.) We will use historical data for both crime and weather data, and develop a model that will predict the level of crime based on the weather. We will do a validity check of our model comparing to the most recent available data to see how well our model predicts the level of crime. We will store our crime data in an SQL database
 
 ## Visualizations
