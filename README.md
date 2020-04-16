@@ -7,7 +7,7 @@
 Jackie Kamprath | Kevin Balhoff | Kannan Sekkappan | Ethan Martin | Candice Sessa | Georgia Leigh
 
 ## Thesis: 
-We hypothesize that as weather conditions impact the levels of crime. We suggest that the impact weather has on crime is not consistent amongst all types of crime, with some crime increasing when weather conditions encourages individuals to stay home(domestic violence) and other crime decreases when weather conditions encourage individuals to stay home (home burglary)
+We hypothesize that weather conditions impact the level of crime. We suggest that the impact weather has on crime is not consistent amongst all types of crime, with some crime increasing when weather conditions encourages individuals to stay home(domestic violence) and other crime decreases when weather conditions encourage individuals to leave the home (home burglary)
 Research supporting our hypothesis: https://www.researchgate.net/publication/249622050_An_Analysis_of_the_Relationship_between_Weather_and_Aggressive_Crime_in_Cleveland_Ohio
 
 ## Premise: 
