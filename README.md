@@ -2,6 +2,7 @@
 
 
 <img src = "/images/rotten_apple_gif.gif" width = "1000" height = "300">
+
 ## Team Members:
 Jackie Kamprath | Kevin Balhoff | Kannan Sekkappan | Ethan Martin | Candice Sessa | Georgia Leigh
 
