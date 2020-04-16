@@ -1,11 +1,8 @@
-## Rotten Apples
+<h1 align = "center">THE Rotten Apples</h1>
+
+![image rotten apple](/images/rotten_apple_gif.gif)
 ## Team Members:
-Jackie Kamprath
-Kevin Balhoff
-Kannan Sekkappan
-Ethan Martin
-Candice Sessa
-Georgia Leigh
+Jackie Kamprath | Kevin Balhoff | Kannan Sekkappan | Ethan Martin | Candice Sessa | Georgia Leigh
 
 ## Thesis: 
 We hypothesize that as weather conditions impact the levels of crime. We suggest that the impact weather has on crime is not consistent amongst all types of crime, with some crime increasing when weather conditions encourages individuals to stay home(domestic violence) and other crime decreases when weather conditions encourage individuals to stay home (home burglary)
@@ -21,14 +18,17 @@ Predict each type of crime based on weather conditions
 
 Map with filters of crime type and date that shows clustures of crime in area
 
-A forecast of likelihood of crime occuring based on today's weather
-![image2](daily_outlook.png)
-Correlation matrix showing crime and weather
- ![image](corr_matrix.png)
+<h3>A forecast of likelihood of crime occuring based on today's weather</h3>
+<img src = "/images/daily_outlook.png" width = "500" height = "250">
+
+<h3>Correlation matrix showing crime and weather</h3>
+<img src = "/images/corr_matrix.png" width = "500" height = "250">
+
 ## Data sources: 
-Crime Data: Atlanta Police Department Open Data (http://opendataportal.azurewebsites.us/Crimedata/Default.aspx)
-Note- crime data gives street and neighborhood, but not zip. We will need to convert to get the lat/lon https://www.gps-coordinates.net/gps-coordinates-converter
-Weather Data: Openweather API
-https://openweathermap.org/api/forecast30
+1. Crime Data: Atlanta Police Department Open Data 
+   1. (http://opendataportal.azurewebsites.us/Crimedata/Default.aspx)
+coordinates.net/gps-coordinates-converter
+1. Weather Data: Openweather API
+   1. https://openweathermap.org/api/forecast30
 
 
