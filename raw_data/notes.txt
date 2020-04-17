@@ -1,0 +1,2 @@
+all_crime.csv - historical crime (brought in by Candice)
+atl_weather.json - historical weather (brought in by Ethan)
