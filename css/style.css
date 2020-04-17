@@ -3,9 +3,18 @@
 }
 
 body {
-    padding: 10px
+    padding: 10px;
+    margin: 5px
 }
 
 hr {
     border: 1px solid red;
+}
+
+img {
+    text-align: center;
+    width: auto;
+    height: auto;
+    position: relative;
+    
 }
