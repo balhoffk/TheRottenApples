@@ -13,8 +13,9 @@ hr {
 
 img {
     text-align: center;
-    width: auto;
-    height: auto;
-    position: relative;
+
+    display: flex;
+    flex-direction: column;
+
     
 }
