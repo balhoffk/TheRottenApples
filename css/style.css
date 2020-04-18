@@ -14,7 +14,9 @@ hr {
 img {
     text-align: center;
     display: flex;
-    flex-direction: column;
+    flex-direction: column;   
+}
 
-    
+#map {
+  height: 60vh;
 }
