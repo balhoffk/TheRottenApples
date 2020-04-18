@@ -7,5 +7,5 @@
 backup/**
 temp/**
 *.bak
-*.csv
+
 
