@@ -32,3 +32,8 @@ CREATE TABLE "TheRottenApples".hist_weather (
 
 ALTER TABLE "TheRottenApples".hist_weather
     OWNER to revuxevvjssnlm;
+
+
+ALTER TABLE "TheRottenApples".all_crime SET SCHEMA public;
+ALTER TABLE "TheRottenApples".hist_weather SET SCHEMA public;
+
