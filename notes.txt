@@ -39,3 +39,15 @@ Sample Code
 
 	Reading AWS S3
 		sandbox/LoadS3-Test.ipynb
+
+Config file entries:
+	aws_key = "?"
+	aws_secret = "?"
+	mongo_username = "?"
+	mongo_password = "?"
+	mongo_server_name = "?"
+	postgres_server_name = "?"
+	postgres_database = "?"
+	postgres_username = "?"
+	postgres_port = "?"
+	postgres_password = "?"
