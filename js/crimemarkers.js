@@ -54,10 +54,45 @@ d3.csv(path).then(function(data) {
   data.forEach(function(crime) {
     console.log(crime.lat);
 
-    L.marker([crime.lat, crime.lon])
-      .bindPopup("<h1>" + crime.All_Crime + "</h1>")
-      .addTo(myMap);
+    //create the markers
+    L.circleMarker([crime.lat, crime.lon], {
+      radius: 13,
+      fillColor: chooseMarker(crime.combo_crime),
+      color: "white",
+      fillOpacity: .75,
+      weight: 2
     })
+      //bind the popup to each marker
+      .bindPopup("<h1>" + crime.All_Crime + "</h1><hr><h3> Location: "+crime.Neigborhood +"</h3><hr><h3> Temperature: "+crime.temperature+"</h3>")
+      .addTo(myMap);
+
+    })
+
+
+    // Set up the legend
+    //set the legend to be in the topright of the page
+    var legend = L.control({position: "topright"});
+
+    //put together the legend function
+    legend.onAdd = function() {
+    
+    //create the "info legend" class in the html
+    var div = L.DomUtil.create("div", "info legend");
+    
+    //list out the category lables and the colors used
+    var categories = [" Larceny", " Auto Theft"," Robbery", " Burglary", " Homicide"," Manslaughter", " Agg Assault"];
+    var colors = ["pink", "orange", "red","black","purple", "blue", "green"];
+
+    //loop through the categories and push the labels and colors to the legend html
+    for (i=0; i<colors.length; i++) {
+
+      div.innerHTML +=
+      '<li style=\"background:' + colors[i] +'"></li>' +(categories[i] ? categories[i] +'<br>' : '+')
+    }
+      return div;
+  }
+  //add the legend to the map   
+  legend.addTo(myMap)
 
 
 
