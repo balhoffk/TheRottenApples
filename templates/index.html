@@ -18,74 +18,73 @@
 
 <body>
 
+    <!-- header and navbar container -->
     <div class="container">
 
-              <!-- Create the nav bar -->
-              <div class="container">
-      
-                <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
-        
-                    <!-- add title to the left on the bar -->
-                    <a class="navbar-brand" href="http://127.0.0.1:5500/index.html"><i class="fas fa-gavel"></i></i> CRIME & WEATHER</a>
-        
-                    <!--drop down toggle button-->
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                      <span class="navbar-toggler-icon"></span>
-                    </button>
-                  
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                      <ul class="navbar-nav ml-auto">
-        
-                        
-                    
-                         <!--add nav bar drop-down -->
-                        
-                        <li class="nav-item dropdown mr-auto">
-                          <a class="nav-link dropdown-toggle mr-auto" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Types of Crime<span class="caret"></span></a>
-        
-                          <div class="dropdown-menu mr-auto" aria-labelledby="navbarDropdownMenuLink">
-                            <a class="dropdown-item" href=""> Burglary</a>
-        
-                            <a class="dropdown-item" href="">Larceny</a>
-        
-                            <a class="dropdown-item" href="">Robbery</a>
-        
-                            <a class="dropdown-item" href="">Aggravated Assault</a>
+        <!-- create the navbar class -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
 
-                            <a class="dropdown-item" href="">Homicide</a>
-        
-                          </div>             
-                        </li>
-        
-                        <!-- adds links to the bar -->
-        
-                        <li class="nav-item mr-auto">
-                          <a class="nav-link mr-auto" href="http://127.0.0.1:5500/data.html">Daily Forecast</a>
-                        </li>
-                        <li class="nav-item mr-auto">
-                            <a class="nav-link mr-auto" href="http://127.0.0.1:5500/compares.html">Heatmap</a>
-                          </li>
-        
-                      </ul>
-        
-                      </form>
-                    </div>
-                </nav>
+            <!-- add title to the left on the bar -->
+            <a class="navbar-brand" href="http://127.0.0.1:5500/index.html"><i class="fas fa-gavel"></i></i> CRIME & WEATHER</a>
 
-        <div class="header">
-          <div class="row">
-              <div class="col-md-12 jumbotron text-center">
-                <h1>Crime & Weather.</h1>
-                <hr>
-                <h4>Does bad weather bring out the bad apples? We investigate here.</h4>
+            <!--drop down toggle button-->
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+          
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav ml-auto">
 
-              </div>
-            </div>    
-        </div>
+                
+            
+                  <!--add nav bar drop-down -->
+                
+                <li class="nav-item dropdown mr-auto">
+                  <a class="nav-link dropdown-toggle mr-auto" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Types of Crime<span class="caret"></span></a>
+
+                  <div class="dropdown-menu mr-auto" aria-labelledby="navbarDropdownMenuLink">
+                    <a class="dropdown-item" href=""> Burglary</a>
+
+                    <a class="dropdown-item" href="">Larceny</a>
+
+                    <a class="dropdown-item" href="">Robbery</a>
+
+                    <a class="dropdown-item" href="">Aggravated Assault</a>
+
+                    <a class="dropdown-item" href="">Homicide</a>
+
+                  </div>             
+                </li>
+
+                <!-- adds links to the bar -->
+
+                <li class="nav-item mr-auto">
+                  <a class="nav-link mr-auto" href="http://127.0.0.1:5500/data.html">Daily Forecast</a>
+                </li>
+                <li class="nav-item mr-auto">
+                    <a class="nav-link mr-auto" href="http://127.0.0.1:5500/compares.html">Heatmap</a>
+                  </li>
+
+              </ul>
+
+            </div>
+        </nav>
+
+      <!-- Webpage Header -->
+      <div class="header">
+        <div class="row">
+            <div class="col-md-12 jumbotron text-center">
+              <h1>Crime & Weather.</h1>
+              <hr>
+              <h4>Does bad weather bring out the bad apples? We investigate here.</h4>
+
+            </div>
+          </div>    
       </div>
+    </div>
 
     <!-- Holds our charts -->
-    <div class="container"></div>
+    <div class="container">
 
       <div class="row">
         <div class="col-md-6 col-sm-3">
@@ -102,7 +101,7 @@
         </div>
 
       </div>
-      </div>
+
 
       
       <div class="row">
@@ -129,7 +128,7 @@
 
 
     <!-- Our JavaScript-->
-    <script type="text/javascript" src="../js/app.js"></script>
+    <script type="text/javascript" src="../js/crimemarkers.js"></script>
 
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
 

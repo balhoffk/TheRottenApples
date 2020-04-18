@@ -1,4 +1,4 @@
-////Crime Heatmap
+////Crime markers
 // Creating map object
 var myMap = L.map("chart1", {
     center: [33.7490, -84.3880],
