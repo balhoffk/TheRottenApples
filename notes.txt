@@ -1,0 +1,41 @@
+Team Name: TheRottenApples
+
+Team Members
+	kamprat2@gmail.com
+	Georgia.e.leigh@gmail.com
+	ethan.martin95@gmail.com
+	balhoffk@gmail.com
+	sekkappa@gmail.com
+	Candice.sessa10@gmail.com
+
+
+Flask Application
+	https://young-beach-08773.herokuapp.com/
+
+
+/raw_data folder contains the source and intermediaet data
+	all_crime.csv - historical crime (brought in by Candice)
+	atl_weather.json - historical weather (brought in by Ethan)
+
+	Above CSV's can be pulled into java script if needed using the following API call's:
+		http://young-beach-08773.herokuapp.com/get_file?filename=raw_data/crime_weather.csv
+		http://young-beach-08773.herokuapp.com/get_file?filename=raw_data/weather_clean.csv
+		http://young-beach-08773.herokuapp.com/get_file?filename=raw_data/all_crime.csv
+
+
+Sample Code
+	Reading config file (code snippet)
+		import sys
+		sys.path.append("..")
+		from config import aws_key, aws_secret
+		from config import mongo_username, mongo_password, mongo_server_name
+		from config import postgres_server_name, postgres_database, postgres_username, postgres_port, postgres_password
+
+	Mongo DB Connection Sample Jupiter Notebook
+		sandbox/MongoReadwrite.ipynb
+	
+	Postgres Connection Sample Jupiter Notebook
+		code/Historical_Crime_Weather_Analysis_Template
+
+	Reading AWS S3
+		sandbox/LoadS3-Test.ipynb
