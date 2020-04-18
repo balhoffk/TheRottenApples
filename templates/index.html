@@ -8,6 +8,14 @@
     <!-- Bootstrap -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
+    <!-- Leaflet CSS & JS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.3/dist/leaflet.css"
+    integrity="sha512-Rksm5RenBEKSKFjgI3a41vrjkw4EVPlJ3+OiI65vTjIdo9brlAacEuKOiQ5OFh7cOI1bkDwLqdLw3Zg0cRJAAQ=="
+    crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.3.3/dist/leaflet.js"
+    integrity="sha512-tAGcCfR4Sc5ZP5ZoVz0quoZDYX5aCtEm/eu1KhSLj2c9eFrylXZknQYmxUssFaVJKvvc0dJQixhGjG2yXWiV9Q=="
+    crossorigin=""></script>
+
     <!-- Our CSS -->
     <link rel="stylesheet" type="text/css" href="../css/style.css">
 
@@ -18,57 +26,60 @@
 
 <body>
 
-    <!-- header and navbar container -->
-    <div class="container">
+  <!-- API key -->
+  <script type="text/javascript" src="../js/config.js"></script>
 
-        <!-- create the navbar class -->
-        <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+  <!-- header and navbar container -->
+  <div class="container">
 
-            <!-- add title to the left on the bar -->
-            <a class="navbar-brand" href="http://127.0.0.1:5500/index.html"><i class="fas fa-gavel"></i></i> CRIME & WEATHER</a>
+      <!-- create the navbar class -->
+      <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
 
-            <!--drop down toggle button-->
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
+          <!-- add title to the left on the bar -->
+          <a class="navbar-brand" href="http://127.0.0.1:5500/index.html"><i class="fas fa-gavel"></i></i> CRIME & WEATHER</a>
+
+          <!--drop down toggle button-->
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+
+              
           
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-              <ul class="navbar-nav ml-auto">
+                <!--add nav bar drop-down -->
+              
+              <li class="nav-item dropdown mr-auto">
+                <a class="nav-link dropdown-toggle mr-auto" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Types of Crime<span class="caret"></span></a>
 
-                
-            
-                  <!--add nav bar drop-down -->
-                
-                <li class="nav-item dropdown mr-auto">
-                  <a class="nav-link dropdown-toggle mr-auto" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Types of Crime<span class="caret"></span></a>
+                <div class="dropdown-menu mr-auto" aria-labelledby="navbarDropdownMenuLink">
+                  <a class="dropdown-item" href=""> Burglary</a>
 
-                  <div class="dropdown-menu mr-auto" aria-labelledby="navbarDropdownMenuLink">
-                    <a class="dropdown-item" href=""> Burglary</a>
+                  <a class="dropdown-item" href="">Larceny</a>
 
-                    <a class="dropdown-item" href="">Larceny</a>
+                  <a class="dropdown-item" href="">Robbery</a>
 
-                    <a class="dropdown-item" href="">Robbery</a>
+                  <a class="dropdown-item" href="">Aggravated Assault</a>
 
-                    <a class="dropdown-item" href="">Aggravated Assault</a>
+                  <a class="dropdown-item" href="">Homicide</a>
 
-                    <a class="dropdown-item" href="">Homicide</a>
+                </div>             
+              </li>
 
-                  </div>             
+              <!-- adds links to the bar -->
+
+              <li class="nav-item mr-auto">
+                <a class="nav-link mr-auto" href="http://127.0.0.1:5500/data.html">Daily Forecast</a>
+              </li>
+              <li class="nav-item mr-auto">
+                  <a class="nav-link mr-auto" href="http://127.0.0.1:5500/compares.html">Heatmap</a>
                 </li>
 
-                <!-- adds links to the bar -->
+            </ul>
 
-                <li class="nav-item mr-auto">
-                  <a class="nav-link mr-auto" href="http://127.0.0.1:5500/data.html">Daily Forecast</a>
-                </li>
-                <li class="nav-item mr-auto">
-                    <a class="nav-link mr-auto" href="http://127.0.0.1:5500/compares.html">Heatmap</a>
-                  </li>
-
-              </ul>
-
-            </div>
-        </nav>
+          </div>
+      </nav>
 
       <!-- Webpage Header -->
       <div class="header">
@@ -112,10 +123,16 @@
         </div>
       </div>
 
+      <!-- crime markermap -->
+      <div class="row">
+        <div class="col-md-12">
+          <div id="map"></div>
+        </div>
+      </div>
 
       <div class="row">
         <div class="col-md-12">
-          <div id="chart3">Chart 3</div>
+          <div id="chart4">Chart 4</div>
         </div>
       </div>
 

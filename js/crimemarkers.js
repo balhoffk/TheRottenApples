@@ -1,8 +1,8 @@
 ////Crime markers
 // Creating map object
-var myMap = L.map("chart1", {
+var myMap = L.map("map", {
     center: [33.7490, -84.3880],
-    zoom: 8
+    zoom: 11
   });
   
   // Adding tile layer
