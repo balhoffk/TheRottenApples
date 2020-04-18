@@ -36,7 +36,7 @@ function chooseMarker(crime) {
   }
 }
 
-//read in crime data
+//read in crime data & create the markers on the map
 var path = "../raw_data/crime_weather.csv"
 
 d3.csv(path).then(function(data) {
@@ -52,7 +52,6 @@ d3.csv(path).then(function(data) {
 
   //loop through the data and create a marker for each crime on the Atlanta map
   data.forEach(function(crime) {
-    console.log(crime.lat);
 
     //create the markers
     L.circleMarker([crime.lat, crime.lon], {
@@ -97,7 +96,39 @@ d3.csv(path).then(function(data) {
 
 
 
+
+
+});
+
+//create the drop down with all of the dates so you can choose to look at a single day of data by year
+d3.csv(path).then((data) => {
+
+  //create the filter function
+  function filterYears(date) {
+    return date.year == "2009";
+  }
+
+  //filter on the date to narrow down the data
+  data = data.filter(filterYears);
+
+  data.forEach((crime) => {
+
+    var day = document.createElement("option");
+
+    day.text = crime.date;
+    day.value = crime.date;
+
+    console.log(day)
+    
+    //append the date to the selDataset element
+    var sel = document.getElementById("selDate");
+    sel.appendChild(day);
+  });
+
+
 });
 
 
-  //Loop through the crimes and create one marker for each, bind a pop-up to the marker
+
+
+
