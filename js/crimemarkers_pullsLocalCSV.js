@@ -100,25 +100,40 @@ d3.csv(path).then(function(data) {
 
 });
 
+
+//////CREATE THE DATE DROPDOWN
+//create the empty drop-down array for the dates
+var dropdownDates = []
+
 //create the drop down with all of the dates so you can choose to look at a single day of data by year
 d3.csv(path).then((data) => {
 
-  //create the filter function
-  function filterYears(date) {
-    return date.year == "2009";
-  }
 
-  //filter on the date to narrow down the data
+  // create the filter function
+  function filterYears(date) {
+    return date.year == "2020";
+  }
+      // filter on the date to narrow down the data
   data = data.filter(filterYears);
 
-  data.forEach((crime) => {
+
+  //loop through all the dates and if unique, add to the dropdownDates array
+  data.forEach((crime)=> {
+    //if the date is already in the array, then it is discarded, otherwise it is added
+    if (dropdownDates.indexOf(crime.date) == -1) {
+
+      dropdownDates.push(crime.date);
+    };
+  });
+
+
+  // data.forEach((crime) => {
+  dropdownDates.forEach((date) => {
 
     var day = document.createElement("option");
 
-    day.text = crime.date;
-    day.value = crime.date;
-
-    console.log(day)
+    day.text = date;
+    day.value = date;
     
     //append the date to the selDataset element
     var sel = document.getElementById("selDate");
