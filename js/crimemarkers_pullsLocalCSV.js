@@ -42,10 +42,11 @@ d3.csv(path).then((data) => {
 
 // 2. PULL DROPDOWN DATE SELECTED AND CHANGE AS NEW DATES ARE CHOOSEN
 //set default date for the map to pull
+var dropdownDate = d3.select("#selDate").node().value;
 // var dropdownMenuItem = d3.selectAll("#selDate");
 // var dropdownDate = dropdownMenuItem.property("value");
 
-// console.log(dropdownDate);
+console.log("this is the dropdown date:"+ dropdownDate);
 
 //on change to filter call getDate()
 d3.selectAll("#selDate").on("change", getDate);
@@ -53,7 +54,7 @@ d3.selectAll("#selDate").on("change", getDate);
 //function called when DOM changes
 function getDate() {
 
-  var dropdownDate = d3.select("#selDate").property("value");
+  dropdownDate = d3.select("#selDate").property("value");
   console.log(dropdownDate);
 };
 
@@ -79,13 +80,13 @@ var myMap = L.map("map", {
 //create function that determines the crime marker to popup
 function chooseMarker(crime) {
   switch (crime) {
-    case "larceny":
+    case "LARCENY":
       return "pink";
     case "AUTO THEFT":
       return "red";
-    case "robbery":
+    case "ROBBERY":
       return "orange";
-    case "burglary":
+    case "BURGLARY":
       return "black";
     case "HOMICIDE":
       return "purple";
@@ -105,7 +106,7 @@ d3.csv(path).then(function(data) {
 
   //create the filter function
   function filterDates(date) {
-    return date.date == dropdownDate;
+    return date.date == "2020-01-31";
   }
   
   //filter on the date to narrow down the data
@@ -118,7 +119,7 @@ d3.csv(path).then(function(data) {
     //create the markers
     L.circleMarker([crime.lat, crime.lon], {
       radius: 13,
-      fillColor: chooseMarker(crime.combo_crime),
+      fillColor: chooseMarker(crime.type_crime),
       color: "white",
       fillOpacity: .75,
       weight: 2
