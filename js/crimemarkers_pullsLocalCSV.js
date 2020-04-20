@@ -1,4 +1,66 @@
-////Crime markers
+// 1. CREATE THE DATE DROPDOWN FILTER
+//path to the csv
+var path = "../raw_data/crime_weather.csv"
+
+//create the empty drop-down array for the dates
+var dropdownDates = []
+
+//create the drop down with all of the dates so you can choose to look at a single day of data by year
+d3.csv(path).then((data) => {
+
+  // create the filter function
+  function filterYears(date) {
+    return date.year == "2020";
+  }
+      // filter on the date to narrow down the data
+  data = data.filter(filterYears);
+
+  //loop through all the dates and if unique, add to the dropdownDates array
+  data.forEach((crime)=> {
+    //if the date is already in the array, then it is discarded, otherwise it is added
+    if (dropdownDates.indexOf(crime.date) == -1) {
+
+      dropdownDates.push(crime.date);
+    };
+  });
+
+  //Loop through the dropdownDates and add each element text and value to the dropdown
+  dropdownDates.forEach((date) => {
+
+    var day = document.createElement("option");
+
+    day.text = date;
+    day.value = date;
+    
+    //append the date to the selDataset element
+    var sel = document.getElementById("selDate");
+    sel.appendChild(day);
+  });
+});
+
+
+
+// 2. PULL DROPDOWN DATE SELECTED AND CHANGE AS NEW DATES ARE CHOOSEN
+//set default date for the map to pull
+// var dropdownMenuItem = d3.selectAll("#selDate");
+// var dropdownDate = dropdownMenuItem.property("value");
+
+// console.log(dropdownDate);
+
+//on change to filter call getDate()
+d3.selectAll("#selDate").on("change", getDate);
+
+//function called when DOM changes
+function getDate() {
+
+  var dropdownDate = d3.select("#selDate").property("value");
+  console.log(dropdownDate);
+};
+
+
+
+
+// 3. CREATE THE LEAFLET MAP WITH CRIME MARKERS
 // Creating map object
 var myMap = L.map("map", {
     center: [33.7490, -84.3880],
@@ -43,7 +105,7 @@ d3.csv(path).then(function(data) {
 
   //create the filter function
   function filterDates(date) {
-    return date.date == "2009-02-28";
+    return date.date == dropdownDate;
   }
   
   //filter on the date to narrow down the data
@@ -101,47 +163,6 @@ d3.csv(path).then(function(data) {
 });
 
 
-//////CREATE THE DATE DROPDOWN
-//create the empty drop-down array for the dates
-var dropdownDates = []
-
-//create the drop down with all of the dates so you can choose to look at a single day of data by year
-d3.csv(path).then((data) => {
-
-
-  // create the filter function
-  function filterYears(date) {
-    return date.year == "2020";
-  }
-      // filter on the date to narrow down the data
-  data = data.filter(filterYears);
-
-
-  //loop through all the dates and if unique, add to the dropdownDates array
-  data.forEach((crime)=> {
-    //if the date is already in the array, then it is discarded, otherwise it is added
-    if (dropdownDates.indexOf(crime.date) == -1) {
-
-      dropdownDates.push(crime.date);
-    };
-  });
-
-
-  // data.forEach((crime) => {
-  dropdownDates.forEach((date) => {
-
-    var day = document.createElement("option");
-
-    day.text = date;
-    day.value = date;
-    
-    //append the date to the selDataset element
-    var sel = document.getElementById("selDate");
-    sel.appendChild(day);
-  });
-
-
-});
 
 
 
