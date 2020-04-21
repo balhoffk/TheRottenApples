@@ -1,6 +1,8 @@
-// 1. CREATE THE DATE DROPDOWN FILTER
+// 1. CREATE THE DATE DROPDOWN FILTER FUNCTION
 //path to the csv
 var path = "../raw_data/crime_weather.csv"
+
+
 
 //create the empty drop-down array for the dates
 var dropdownDates = []
@@ -12,7 +14,7 @@ d3.csv(path).then((data) => {
   function filterYears(date) {
     return date.year == "2020";
   }
-      // filter on the date to narrow down the data
+    // filter on the date to narrow down the data for only the year selected
   data = data.filter(filterYears);
 
   //loop through all the dates and if unique, add to the dropdownDates array
@@ -26,9 +28,9 @@ d3.csv(path).then((data) => {
 
   //Loop through the dropdownDates and add each element text and value to the dropdown
   dropdownDates.forEach((date) => {
-
+    //create the dropdown element
     var day = document.createElement("option");
-
+    //add the element text and value equal to the date
     day.text = date;
     day.value = date;
     
@@ -40,16 +42,13 @@ d3.csv(path).then((data) => {
 
 
 
+
 // 2. PULL DROPDOWN DATE SELECTED AND CHANGE AS NEW DATES ARE CHOOSEN
 //set default date for the map to pull
-var dropdownDate = d3.select("#selDate").node().value;
-// var dropdownMenuItem = d3.selectAll("#selDate");
-// var dropdownDate = dropdownMenuItem.property("value");
-
-console.log("this is the dropdown date:"+ dropdownDate);
+var dropdownDate = "2020-01-31";
 
 //on change to filter call getDate()
-d3.selectAll("#selDate").on("change", getDate);
+d3.selectAll("#selDate").on("change", getDate, buildMap);
 
 //function called when DOM changes
 function getDate() {
@@ -102,69 +101,70 @@ function chooseMarker(crime) {
 //read in crime data & create the markers on the map
 var path = "../raw_data/crime_weather.csv"
 
-d3.csv(path).then(function(data) {
-
-  //create the filter function
-  function filterDates(date) {
-    return date.date == "2020-01-31";
-  }
-  
-  //filter on the date to narrow down the data
-  data = data.filter(filterDates);
-  console.log(data);
-
-  //loop through the data and create a marker for each crime on the Atlanta map
-  data.forEach(function(crime) {
-
-    //create the markers
-    L.circleMarker([crime.lat, crime.lon], {
-      radius: 13,
-      fillColor: chooseMarker(crime.type_crime),
-      color: "white",
-      fillOpacity: .75,
-      weight: 2
-    })
-      //bind the popup to each marker
-      .bindPopup("<h1>" + crime.All_Crime + "</h1><hr><h3> Location: "+crime.Neigborhood +"</h3><hr><h3> Temperature: "+crime.temperature+"</h3>")
-      .addTo(myMap);
-
-    })
+function buildMap() {
 
 
-    // Set up the legend
-    //set the legend to be in the topright of the page
-    var legend = L.control({position: "topright"});
+  d3.csv(path).then(function(data) {
 
-    //put together the legend function
-    legend.onAdd = function() {
-    
-    //create the "info legend" class in the html
-    var div = L.DomUtil.create("div", "info legend");
-    
-    //list out the category lables and the colors used
-    var categories = [" Larceny", " Auto Theft"," Robbery", " Burglary", " Homicide"," Manslaughter", " Agg Assault"];
-    var colors = ["pink", "orange", "red","black","purple", "blue", "green"];
-
-    //loop through the categories and push the labels and colors to the legend html
-    for (i=0; i<colors.length; i++) {
-
-      div.innerHTML +=
-      '<li style=\"background:' + colors[i] +'"></li>' +(categories[i] ? categories[i] +'<br>' : '+')
+    //create the filter function
+    function filterDates(date) {
+      return date.date == String(dropdownDate);
+      
     }
+
+    //filter on the date to narrow down the data
+    data = data.filter(filterDates);
+    console.log(data);
+
+    //loop through the data and create a marker for each crime on the Atlanta map
+    data.forEach(function(crime) {
+
+      //create the markers
+      L.circleMarker([crime.lat, crime.lon], {
+        radius: 13,
+        fillColor: chooseMarker(crime.type_crime),
+        color: "white",
+        fillOpacity: .75,
+        weight: 2
+      })
+        //bind the popup to each marker
+        .bindPopup("<h1>" + crime.type_crime + "</h1><hr><h3> Location: "+crime.Neigborhood +"</h3><hr><h3> Temperature(F): "+Math.round(crime.temperature,0)+"</h3><hr><h3>Date: "+crime.date+"</h3>")
+        .addTo(myMap);
+
+      })
+
+
+      // Set up the legend
+      //set the legend to be in the topright of the page
+      var legend = L.control({position: "topright"});
+
+      //put together the legend function
+      legend.onAdd = function() {
+      
+        //create the "info legend" class in the html
+        var div = L.DomUtil.create("div", "info legend");
+        
+        //list out the category lables and the colors used
+        var categories = [" Larceny"," Robbery", " Auto Theft", " Burglary", " Homicide"," Manslaughter", " Agg Assault"];
+        var colors = ["pink", "orange", "red","black","purple", "blue", "green"];
+
+        //loop through the categories and push the labels and colors to the legend html
+        for (i=0; i<colors.length; i++) {
+
+          div.innerHTML +=
+          '<li style=\"background:' + colors[i] +'"></li>' +(categories[i] ? categories[i] +'<br>' : '+')
+        }
       return div;
+    }
+    //add the legend to the map   
+    legend.addTo(myMap)
+
+  });
+
+
   }
-  //add the legend to the map   
-  legend.addTo(myMap)
 
-
-
-
-
-
-});
-
-
-
+buildMap();
 
 
 
