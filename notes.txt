@@ -26,6 +26,7 @@ Folder /raw_data
 		http://young-beach-08773.herokuapp.com/get_crime_count
 		http://young-beach-08773.herokuapp.com/get_crime_count/get_map_data
 
+		http://young-beach-08773.herokuapp.com/getdf?key=Ethan_Crime_Weather_Exploration
 
 Sample Code
 	Reading config file (code snippet)
@@ -67,6 +68,10 @@ Mongo DB Details
 	Username: TheRottenApples
 	Password: gaTech2019
 
+Storing Data to Mongo
+	# write to mongo
+	import tra_functions as tralib
+	tralib.write_df_to_mongo_as_json("Ethan_Crime_Weather_Exploration", org_crime_temp_df)
 
 Work completed
 Kannan
