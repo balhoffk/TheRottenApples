@@ -136,12 +136,11 @@ function buildMap() {
         //bind the popup to each marker
         .bindPopup("<h1>" + crime.combo_crime + "</h1><hr><h3> Location: "+crime.Neigborhood +"</h3><hr><h3> Temperature(F): "+Math.round(crime.temperature,0)+"</h3><hr><h3>Date: "+crime.date+"</h3>")
         .addTo(myMap);
+      });
+    
 
-      })
 
   });
-
-
 }
 
 
