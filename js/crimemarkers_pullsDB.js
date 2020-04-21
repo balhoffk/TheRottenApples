@@ -95,25 +95,19 @@ legend.addTo(myMap)
 
 
 
-// 5. PULL DROPDOWN DATE SELECTED AND CHANGE AS NEW DATES ARE CHOOSEN
-//set default date for the map to pull
-var dropdownDate = "";
-
-//on change to filter call getDate()
+// 5. CALL buildMap FUNCTION WHEN A CHANGE IS MADE ON THE FILTER
 d3.selectAll("#selDate").on("change", buildMap);
-
-//function called when DOM changes
-// function getDate() {
-
-//   dropdownDate = d3.select("#selDate").property("value");
-// };
 
 
 
 // 6. CREATE THE buildMap FUNCTION TO RUN WHEN A DROPDOWN ITEM IS SELECTED
 function buildMap() {
+  //reset the dropdownDate to nothing everytime a change is made to the filter
+  var dropdownDate = "";
+  //clear the markers from the table everytime a change is made to the filter
+  d3.selectAll("path").remove();
   //grab the dropdown value selected for our data filter
-  var dropdownDate = d3.select("#selDate").property("value");
+  dropdownDate = d3.select("#selDate").property("value");
 
   var path = "http://young-beach-08773.herokuapp.com/get_file?filename=raw_data/crime_weather.csv";
 
@@ -125,16 +119,12 @@ function buildMap() {
     //create the filter function
     function filterDates(date) {
       return date.date == dropdownDate;
-      
     }
-
     //filter on the date to narrow down the data
     data = data.filter(filterDates);
     console.log(data);
-
     //loop through the data and create a marker for each crime on the Atlanta map
     data.forEach(function(crime) {
-
       //create the markers
       L.circleMarker([crime.lat, crime.lon], {
         radius: 13,
@@ -154,7 +144,7 @@ function buildMap() {
 
 }
 
-// buildMap();
+
 
 
 
