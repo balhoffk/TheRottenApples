@@ -13,7 +13,9 @@ Flask Application
 	https://young-beach-08773.herokuapp.com/
 
 
-/raw_data folder contains the source and intermediaet data
+Folder /raw_data 
+
+	This folder contains the source and intermediaet data
 	all_crime.csv - historical crime (brought in by Candice)
 	atl_weather.json - historical weather (brought in by Ethan)
 
@@ -21,6 +23,8 @@ Flask Application
 		http://young-beach-08773.herokuapp.com/get_file?filename=raw_data/crime_weather.csv
 		http://young-beach-08773.herokuapp.com/get_file?filename=raw_data/weather_clean.csv
 		http://young-beach-08773.herokuapp.com/get_file?filename=raw_data/all_crime.csv
+		http://young-beach-08773.herokuapp.com/get_crime_count
+		http://young-beach-08773.herokuapp.com/get_crime_count/get_map_data
 
 
 Sample Code
@@ -51,3 +55,31 @@ Config file entries:
 	postgres_username = "?"
 	postgres_port = "?"
 	postgres_password = "?"
+
+HeroKu Postgres DB details
+	Host		:	ec2-52-70-15-120.compute-1.amazonaws.com
+	Database	:	d6hi5on1mbqdke
+	User		:	revuxevvjssnlm
+	Port		:	5432
+
+Mongo DB Details
+	Host:	cluster0-eyrv8.mongodb.net
+	Username: TheRottenApples
+	Password: gaTech2019
+
+
+Work completed
+Kannan
+	-	Creation of Cloud Mongo DB
+	-	Creation of Cloud Postgres DB
+	-	Creation of Heroku Flask environment with procefile, requirements.txt etc
+	-	Creation and connection to Heroku Postgres DB
+	-	Creation of All_Crime table and import of data
+	-	Heroku DB upgrade
+	-	Data migrated
+	-	Application reconfigured
+
+Candice
+	-	Web Scrapping, cleaning of crime data
+
+
