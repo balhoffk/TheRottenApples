@@ -32,6 +32,7 @@ d3.csv(path).then((data) => {
 });
 
 
+
 // 2. ADD IN THE LEAFLET MAP WITH TILE LAYER
 // Creating map object
 var myMap = L.map("map", {
@@ -45,6 +46,7 @@ L.tileLayer("https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={
   id: "mapbox.streets",
   accessToken: API_KEY
 }).addTo(myMap);
+
 
 
 // 3. CREATE chooseMarker FUNCTION WHICH DETERMINES THE COLOR MARKER FOR EACH CRIMEON THE MAP
@@ -73,17 +75,13 @@ function chooseMarker(crime) {
 // 4. SET UP MAP LEGEND
 //set the legend to be in the topright of the page
 var legend = L.control({position: "topright"});
-
 //put together the legend function
 legend.onAdd = function() {
-
   //create the "info legend" class in the html
   var div = L.DomUtil.create("div", "info legend");
-  
   //list out the category lables and the colors used
   var categories = [" Larceny"," Robbery", " Auto Theft", " Burglary", " Homicide"," Manslaughter", " Agg Assault"];
   var colors = ["pink", "orange", "red","black","purple", "blue", "green"];
-
   //loop through the categories and push the labels and colors to the legend html
   for (i=0; i<colors.length; i++) {
 
@@ -99,24 +97,24 @@ legend.addTo(myMap)
 
 // 5. PULL DROPDOWN DATE SELECTED AND CHANGE AS NEW DATES ARE CHOOSEN
 //set default date for the map to pull
-var dropdownDate = "2020-01-31";
+var dropdownDate = "";
 
 //on change to filter call getDate()
-d3.selectAll("#selDate").on("change", getDate);
+d3.selectAll("#selDate").on("change", buildMap);
 
 //function called when DOM changes
-function getDate() {
+// function getDate() {
 
-  var dropdownDate = d3.select("#selDate").property("value");
-  console.log(dropdownDate);
-};
+//   dropdownDate = d3.select("#selDate").property("value");
+// };
 
 
 
 // 6. CREATE THE buildMap FUNCTION TO RUN WHEN A DROPDOWN ITEM IS SELECTED
-//var path = "../raw_data/crime_weather.csv"
+function buildMap() {
+  //grab the dropdown value selected for our data filter
+  var dropdownDate = d3.select("#selDate").property("value");
 
-// function buildMap() {
   var path = "http://young-beach-08773.herokuapp.com/get_file?filename=raw_data/crime_weather.csv";
 
   d3.csv(path).then(function(data) {
@@ -126,7 +124,7 @@ function getDate() {
 
     //create the filter function
     function filterDates(date) {
-      return date.date == String(dropdownDate);
+      return date.date == dropdownDate;
       
     }
 
@@ -151,36 +149,10 @@ function getDate() {
 
       })
 
-
-    //   // Set up the legend
-    //   //set the legend to be in the topright of the page
-    //   var legend = L.control({position: "topright"});
-
-    //   //put together the legend function
-    //   legend.onAdd = function() {
-      
-    //     //create the "info legend" class in the html
-    //     var div = L.DomUtil.create("div", "info legend");
-        
-    //     //list out the category lables and the colors used
-    //     var categories = [" Larceny"," Robbery", " Auto Theft", " Burglary", " Homicide"," Manslaughter", " Agg Assault"];
-    //     var colors = ["pink", "orange", "red","black","purple", "blue", "green"];
-
-    //     //loop through the categories and push the labels and colors to the legend html
-    //     for (i=0; i<colors.length; i++) {
-
-    //       div.innerHTML +=
-    //       '<li style=\"background:' + colors[i] +'"></li>' +(categories[i] ? categories[i] +'<br>' : '+')
-    //     }
-    //   return div;
-    // }
-    // //add the legend to the map   
-    // legend.addTo(myMap)
-
   });
 
 
-// }
+}
 
 // buildMap();
 
