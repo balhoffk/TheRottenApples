@@ -138,8 +138,6 @@ function buildMap() {
         .addTo(myMap);
       });
     
-
-
   });
 }
 
