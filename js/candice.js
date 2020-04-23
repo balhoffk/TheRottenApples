@@ -51,7 +51,9 @@ d3.csv('../raw_data/crime_weather_fore.csv').then(data => {
                x: item.map(row => row.date),
                y: item.map(row => row.All_Crime),
                name :"All Crime",
-               type: "scatter"
+               type: "scatter",
+               line: {color: "red"}
+               
            };
        
        var trace2 = 
@@ -59,15 +61,16 @@ d3.csv('../raw_data/crime_weather_fore.csv').then(data => {
                x: item.map(row => row.date),
                y: item.map(row => row.forecasted_crime),
                name :"Forecasted Crime",
-               type: "scatter"  
+               type: "scatter",
+               line: {color: "blue"}  
            };
        
        var all_traces = [trace1, trace2]
 
        var layout = {
            title: (`${names[index]}'s Birthday Week - Forecasted vs. Actual Crime`),
-           xaxis: {title: "Time"},
-           yaxis: {title: "Levels of Crime",
+           xaxis: {title: "2019 Week"},
+           yaxis: {title: "Number of Crimes Committed",
                    type: "linear"}
        };
        

@@ -1,5 +1,6 @@
 .jumbotron {
     background-color: white;
+    height: 200px;
 }
 
 body {
@@ -25,6 +26,7 @@ p {
 h6 {
   color: red;
   font-size: 20px;
+
 }
 
 #map {
@@ -66,9 +68,6 @@ h6 {
   color: black;
   border: red;
   border-style: solid;
-}
-
-.fa {font-size:50px;
 }
 
 .fa-exclamation-circle {
