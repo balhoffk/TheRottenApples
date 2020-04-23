@@ -18,8 +18,13 @@ img {
 }
 
 p {
+  font-family: Helvetica;
+  font-size: 17px;
+}
 
-
+h6 {
+  color: red;
+  font-size: 20px;
 }
 
 #map {
