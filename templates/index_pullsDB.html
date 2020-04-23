@@ -44,37 +44,37 @@
           </button>
         
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav ml-auto">
+            <ul class="navbar-nav mr-auto">
 
               
           
                 <!--add nav bar drop-down -->
               
-              <li class="nav-item dropdown mr-auto">
-                <a class="nav-link dropdown-toggle mr-auto" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Types of Crime<span class="caret"></span></a>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Types of Crime<span class="caret"></span></a>
 
-                <div class="dropdown-menu mr-auto" aria-labelledby="navbarDropdownMenuLink">
-                  <a class="dropdown-item" href=""> Burglary</a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                  <a class="dropdown-item" href="https://en.wikipedia.org/wiki/Burglary"> Burglary</a>
 
-                  <a class="dropdown-item" href="">Larceny</a>
+                  <a class="dropdown-item" href="https://en.wikipedia.org/wiki/Larceny">Larceny</a>
 
-                  <a class="dropdown-item" href="">Robbery</a>
+                  <a class="dropdown-item" href="https://en.wikipedia.org/wiki/Robbery">Robbery</a>
 
-                  <a class="dropdown-item" href="">Aggravated Assault</a>
+                  <a class="dropdown-item" href="https://en.wikipedia.org/wiki/Assault#Aggravated_assault">Aggravated Assault</a>
 
-                  <a class="dropdown-item" href="">Homicide</a>
+                  <a class="dropdown-item" href="https://en.wikipedia.org/wiki/Homicide">Homicide</a>
 
                 </div>             
               </li>
 
               <!-- adds links to the bar -->
-
+<!-- 
               <li class="nav-item mr-auto">
                 <a class="nav-link mr-auto" href="http://127.0.0.1:5500/data.html">Daily Forecast</a>
               </li>
               <li class="nav-item mr-auto">
                   <a class="nav-link mr-auto" href="http://127.0.0.1:5500/compares.html">Heatmap</a>
-                </li>
+                </li> -->
 
             </ul>
 
@@ -114,18 +114,26 @@
       </div>
 
 
+      <!-- Birthday Weeks -->
+      <div class="row">
+        <div class="col-md-12 col-md-6">
+          <div class="well">
+            <h5>Please select a date from the drop down:</h5>
+            <select id="selBirthday"></select>
+          </div>
+        </div>
+      </div>
       
       <div class="row">
         <div class="col-md-12 col-md-6">
-          <!-- <div id="chart2">Chart 2</div> -->
-          <img src="..\images\Crime_historical_forecast.PNG" alt="DailyForcast" class="img-fluid" alt="Chart">
-          
+          <div id="birthday"></div>       
         </div>
       </div>
 
+
       <!-- crime markermap -->
       <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-12 col-md-6">
           <div class="well">
             <h5>Select a Date:</h5>
             <select id="selDate" onchange="buildMap(this.value)"></select>
@@ -150,18 +158,25 @@
 
 
 
-    
+    <!-- Plotly -->
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
     <!-- D3 JavaScript -->
     <script src="https://d3js.org/d3.v5.min.js"></script>
 
     <!-- Our JavaScript-->
+    <!-- Crimemarkers -->
     <script type="text/javascript" src="../js/crimemarkers_pullsDB.js"></script>
+
+    <!-- Birthdayweeks -->
+    <script type="text/javascript" src="../js/candice.js"></script>
 
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
 
 </body>
 

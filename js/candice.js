@@ -1,6 +1,27 @@
+// Initializes the page with a default blank plot
+function init() {
+
+    var trace1 = 
+    {
+        x: ["Jan 1", "Apr 1", "Jul 1", "Oct 1", "Dec 1"],
+        y: [60, 70, 80, 90, 100],
+        name :"Forecasted Crime",
+        type: "scatter"  
+    };
+    var layout = {
+        title: (`Birthday Week - Forecasted vs. Actual Crime`),
+        xaxis: {title: "Time"},
+        yaxis: {title: "Levels of Crime",
+                type: "linear"}
+    };
+  
+    Plotly.newPlot("birthday", trace1, layout);
+  }
+  init();
 
 
-d3.csv('./raw_data/crime_weather_fore.csv').then(data => {
+
+d3.csv('../raw_data/crime_weather_fore.csv').then(data => {
     csvData = data;
     dates = data.map(row => row.date);
 
@@ -16,9 +37,9 @@ d3.csv('./raw_data/crime_weather_fore.csv').then(data => {
         for (let i = 0; i < all_samples.length; i++) {
             console.log(all_samples[i]);
             
-            d3.select('select').append('option').text(all_samples[i][0].date).attr('value',i);
-            d3.select('select').on('change', () => {
-                        index = d3.select('select').property("value");
+            d3.select('#selBirthday').append('option').text(all_samples[i][0].date).attr('value',i);
+            d3.select('#selBirthday').on('change', () => {
+                        index = d3.select('#selBirthday').property("value");
                         trace_function(all_samples[index])
                     })
             
@@ -49,7 +70,8 @@ d3.csv('./raw_data/crime_weather_fore.csv').then(data => {
            yaxis: {title: "Levels of Crime",
                    type: "linear"}
        };
-       Plotly.newPlot("sample1", all_traces,layout);
+       
+       Plotly.newPlot("birthday", all_traces,layout);
 
    }
  
