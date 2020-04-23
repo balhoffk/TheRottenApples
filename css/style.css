@@ -46,14 +46,28 @@ img {
     height: 22px;
   }
 
-  
+
   /* Style the counter cards */
 .card {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   padding: 16px;
   text-align: center;
-  background-color: #444;
-  color: white;
+  background-color: white;
+  color: black;
+  border: red;
+  border-style: solid;
 }
 
-.fa {font-size:50px;}
+.fa {font-size:50px;
+}
+
+.fa-exclamation-circle {
+  color: red;
+  font-size: 100px;
+}
+
+#crimeCount {
+  font-size: 50px
+}
+
+
