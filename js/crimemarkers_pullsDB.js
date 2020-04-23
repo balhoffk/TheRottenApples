@@ -1,3 +1,32 @@
+///////////////////CRIME COUNTER/////////////////////
+// 1. CREATE THE 2020 CRIME COUNTER
+////path to the DB
+var path = "http://young-beach-08773.herokuapp.com/get_file?filename=raw_data/crime_weather.csv"
+
+//read in the crimes and count each one for 2020
+d3.csv(path).then((data) => {
+  // create the filter function, set to only see 2020 dates
+  function filterYears(date) {
+    return date.year == "2020";
+  }
+    // filter on the date to narrow down the data for only the year selected
+  data = data.filter(filterYears);
+  //create a crimer counter variable
+  var crimeCount = 0
+  //loop through all the crimes and add to the counter for each
+  data.forEach((crime)=> {
+    crimeCount ++;
+  });
+  //Append the crime count to the card 
+  d3.selectAll("#crimeCount").text(crimeCount);
+});
+
+
+
+
+
+
+///////////////////CRIME MAP////////////////////////
 // 1. CREATE THE DATE DROPDOWN
 //path to the csv
 var path = "http://young-beach-08773.herokuapp.com/get_file?filename=raw_data/crime_weather.csv"
@@ -175,7 +204,10 @@ function buildMap() {
 
 
   });
-}
+};
+
+
+
 
 
 

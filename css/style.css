@@ -1,5 +1,6 @@
 .jumbotron {
     background-color: white;
+    height: 200px;
 }
 
 body {
@@ -17,10 +18,22 @@ img {
     flex-direction: column;   
 }
 
+p {
+  font-family: Helvetica;
+  font-size: 17px;
+}
+
+h6 {
+  color: red;
+  font-size: 20px;
+
+}
+
 #map {
   height: 60vh;
 }
 
+/* Style the legend on the map */
 .legend {
     padding: 6px 8px;
     font: 12px Arial, Helvetica, sans-serif;
@@ -44,3 +57,26 @@ img {
     width: 30px;
     height: 22px;
   }
+
+
+  /* Style the counter cards */
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  padding: 16px;
+  text-align: center;
+  background-color: white;
+  color: black;
+  border: red;
+  border-style: solid;
+}
+
+.fa-exclamation-circle {
+  color: red;
+  font-size: 100px;
+}
+
+#crimeCount {
+  font-size: 50px
+}
+
+

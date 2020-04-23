@@ -36,7 +36,7 @@
       <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
 
           <!-- add title to the left on the bar -->
-          <a class="navbar-brand" href="http://127.0.0.1:5500/index.html"><i class="fas fa-gavel"></i></i> CRIME & WEATHER</a>
+          <a class="navbar-brand" href=""><i class="fas fa-gavel"></i></i> CRIME & WEATHER</a>
 
           <!--drop down toggle button-->
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -68,11 +68,11 @@
               </li>
 
               <!-- adds links to the bar -->
-<!-- 
-              <li class="nav-item mr-auto">
-                <a class="nav-link mr-auto" href="http://127.0.0.1:5500/data.html">Daily Forecast</a>
-              </li>
-              <li class="nav-item mr-auto">
+
+              <!-- <li class="nav-item mr-auto">
+                <a class="nav-link mr-auto" href="http://127.0.0.1:5500/data.html"></a>
+              </li> -->
+              <!-- <li class="nav-item mr-auto">
                   <a class="nav-link mr-auto" href="http://127.0.0.1:5500/compares.html">Heatmap</a>
                 </li> -->
 
@@ -88,35 +88,53 @@
               <h1>Crime & Weather.</h1>
               <hr>
               <h4>Does bad weather bring out the bad apples? We investigate here.</h4>
-
+              <hr>
             </div>
           </div>    
       </div>
     </div>
 
-    <!-- Holds our charts -->
+    <!-- Container to Hold our charts & content-->
     <div class="container">
 
+      <!-- Describe our project -->
       <div class="row">
-        <div class="col-md-6 col-sm-3">
-
-        <!-- Daily forecast -->
-        <img src="..\images\daily_outlook.png" alt="DailyForcast" class="img-fluid" alt="DailyForecast">
-      </div>
-
-        <!-- Crime Counter -->
-        <div class="col-md-6 col-sm-3">
-          <img src="..\images\Crime_counter_placeholder.PNG" alt="DailyForcast" class="img-fluid" alt="CrimeCounter">
- 
+        <div class="col-lg-12">
+          <p>This project looks at crime and weather in Atlanta. We hypothesize that weather conditions impact the level of crime. We suggest that the impact weather has on crime is not consistent amongst all types of crime, with some crime increasing when weather conditions encourages individuals to stay home(domestic violence) and other crime decreases when weather conditions encourage individuals to leave the home (home burglary).</p>
 
         </div>
 
       </div>
+      <br>
+      <br>
+      <div class="row">
+        <div class="col-md-6 col-sm-3">
+         
+          <h3>When looking at all crimes and not individual types of crime, we found the below to be true:</h3>
+          <br>
+          <!-- <h5>All Crimes = .82*temperature + 5.62*percentage of rain that day</h5> -->
 
+          <h6>Results:</h6>
+          <p> When looking at the historical crime and weather data from 2009 – 2018, we find that on average, if temperature increases by 1 degree, we estimate crimes to increase by .82. Likewise, for every additional percent of rain there is a day, we estimate crimes to increase by 5.62 crimes. Both variables are highly significant, and our model has an adjusted R-square of .96. The closer R-square is to 1, the more of the relationship our model explains, this model explains a large portion of the relationship of crime to weather</p>
+        </div>
 
+        <!-- Crime Counter -->
+        <div class="col-md-6 col-sm-3">
+          <div class="card">
+            <p><i class="fas fa-exclamation-circle"></i></p>
+            <h4>Total Atlanta Crimes in 2020:</h3>
+            <p id="crimeCount"></p>
+          </div>
+         </div>
+
+      </div>
+
+      <br>
       <!-- Birthday Weeks -->
+      <hr>
       <div class="row">
         <div class="col-md-12 col-md-6">
+          <h6>Choose a date below to see an example of ACTUAL CRIMES vs FORECASTED CRIMES based on our model.</h6>
           <div class="well">
             <h5>Please select a date from the drop down:</h5>
             <select id="selBirthday"></select>
@@ -130,10 +148,12 @@
         </div>
       </div>
 
-
+      <br>
+      <hr>
       <!-- crime markermap -->
       <div class="row">
         <div class="col-md-12 col-md-6">
+          <h6>To see actual locations of specific crimes committed in Atlanta on a specific day in 2020, choose a date from the dropdown</h6>
           <div class="well">
             <h5>Select a Date:</h5>
             <select id="selDate" onchange="buildMap(this.value)"></select>
@@ -149,7 +169,7 @@
 
       <div class="row">
         <div class="col-md-12">
-          <div id="chart4">Chart 4</div>
+          <div id="chart4"></div>
         </div>
       </div>
 
