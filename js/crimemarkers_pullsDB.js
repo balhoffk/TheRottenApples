@@ -120,6 +120,16 @@ function buildMap() {
     function filterDates(date) {
       return date.date == dropdownDate;
     }
+
+    //add in weather icon
+    // var weatherIcon = L.control({position:"topleft"});
+
+    // weatherIcon.onAdd = (
+      
+    // if (date.percentage_rain > .5) {
+    //   then
+    // })
+
     //filter on the date to narrow down the data
     data = data.filter(filterDates);
     console.log(data);
@@ -133,11 +143,37 @@ function buildMap() {
         fillOpacity: .75,
         weight: 2
       })
+
+
+        //Add on the event listeners
+        //mouse on & mouse off events
+        .on({
+          mouseover: function(event) {
+            circleMarker = event.target;
+            circleMarker.setStyle({
+              fillOpacity: 1,
+              weight: 4
+            })
+          },
+          mouseout: function(event) {
+            circleMarker = event.target;
+            circleMarker.setStyle({
+              fillOpacity: 0.70,
+              weight: 2
+            });
+          },
+        })
+
+
         //bind the popup to each marker
-        .bindPopup("<h1>" + crime.combo_crime + "</h1><hr><h3> Location: "+crime.Neigborhood +"</h3><hr><h3> Temperature(F): "+Math.round(crime.temperature,0)+"</h3><hr><h3>Date: "+crime.date+"</h3>")
-        .addTo(myMap);
+        .bindPopup("<h1>" + crime.combo_crime + "</h1><hr><h3> Location: "+crime.Neigborhood +"</h3><hr><h3> High Temperature(F): "+Math.round(crime.temperature,0)+"</h3><hr><h3>Date: "+crime.date+"</h3>")
+
+        .addTo(myMap)
       });
-    
+        //Add on the event listeners
+    //mouse on & mouse off events
+
+
   });
 }
 
