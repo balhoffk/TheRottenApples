@@ -68,11 +68,11 @@
               </li>
 
               <!-- adds links to the bar -->
-<!-- 
-              <li class="nav-item mr-auto">
-                <a class="nav-link mr-auto" href="http://127.0.0.1:5500/data.html">Daily Forecast</a>
-              </li>
-              <li class="nav-item mr-auto">
+
+              <!-- <li class="nav-item mr-auto">
+                <a class="nav-link mr-auto" href="http://127.0.0.1:5500/data.html"></a>
+              </li> -->
+              <!-- <li class="nav-item mr-auto">
                   <a class="nav-link mr-auto" href="http://127.0.0.1:5500/compares.html">Heatmap</a>
                 </li> -->
 
@@ -94,11 +94,21 @@
       </div>
     </div>
 
-    <!-- Holds our charts -->
+    <!-- Container to Hold our charts & content-->
     <div class="container">
 
+      <!-- Describe our project -->
+      <div class="row">
+        <div class="col-lg-12">
+          <p>This project looks at crime and weather in Atlanta. We hypothesize that weather conditions impact the level of crime. We suggest that the impact weather has on crime is not consistent amongst all types of crime, with some crime increasing when weather conditions encourages individuals to stay home(domestic violence) and other crime decreases when weather conditions encourage individuals to leave the home (home burglary).</p>
+
+        </div>
+
+      </div>
+      <br>
       <div class="row">
         <div class="col-md-6 col-sm-3">
+          
 
         <!-- Daily forecast -->
         <img src="..\images\daily_outlook.png" alt="DailyForcast" class="img-fluid" alt="DailyForecast">
@@ -117,7 +127,7 @@
 
       </div>
 
-
+      <br>
       <!-- Birthday Weeks -->
       <div class="row">
         <div class="col-md-12 col-md-6">
@@ -134,7 +144,7 @@
         </div>
       </div>
 
-
+      <br>
       <!-- crime markermap -->
       <div class="row">
         <div class="col-md-12 col-md-6">
@@ -153,7 +163,7 @@
 
       <div class="row">
         <div class="col-md-12">
-          <div id="chart4">Chart 4</div>
+          <div id="chart4"></div>
         </div>
       </div>
 
