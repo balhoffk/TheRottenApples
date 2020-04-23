@@ -1,4 +1,4 @@
-// Initializes the page with a default plot
+// Initializes the page with a default blank plot
 function init() {
 
     var trace1 = 
