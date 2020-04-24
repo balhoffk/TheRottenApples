@@ -29,14 +29,16 @@ window.addEventListener('load',()=>{
                     //timezoneDisplay.textContent = timezone;
                     // console.log(data) to see the data and explore it.
                     // calling funtion to set Icon with respect to Open Weather API icon
+                    crime = Math.round(temp*.83); 
+                    forecasted_crime = `${crime} total crimes in the ATL`;              
+                    fDisplay.textContent = forecasted_crime
                     setIcon(data.current.weather[0].icon)
 
                     function setIcon(iconID){
                         const iconSrc = `http://openweathermap.org/img/wn/${iconID}@2x.png`;
                         iconElement.setAttribute('src',iconSrc);
                     }
-                    forecasted_crime = Math.round(temp*.83)                   
-                    fDisplay.textContent = forecasted_crime
+                    
                         })
                     })
                 };
