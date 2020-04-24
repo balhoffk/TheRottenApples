@@ -135,6 +135,7 @@ function buildMap() {
   var dropdownDate = "";
   //clear the markers from the table everytime a change is made to the filter
   d3.selectAll("path").remove();
+  d3.selectAll(".leaflet-image-layer").remove();
   //grab the dropdown value selected for our data filter
   dropdownDate = d3.select("#selDate").property("value");
 
@@ -194,23 +195,28 @@ function buildMap() {
 
 
       });
-        //Add on the event listeners
-    //mouse on & mouse off events
-
-    var rain = "../images/rain.jpg";
+    //Add on the weather icon to indicate if it is sunny or rainy that day
+    //store the icon paths
+    var rain = "../images/sad-rain.png";
     var sun = "../images/11561_Sun.png";
-    var imageBounds = [[33.869747, -84.662046],[33.830044,-84.600581]];
+    //store the lat and long of where the icon goes
+    var imageBounds = [[33.869747, -84.662046],[33.773773,-84.522717]];
 
     //determine which icon to add based on rain or sun
-    if (data.percentage_rain > .5) {
+    // data.forEach(function(crime) {
+    //pull the rain percentage number for the sun or rain icon
+    rainOrShine = data[0].rainy;
+    console.log(rainOrShine);
 
+    if (rainOrShine > .5) {
+      console.log(rainOrShine);
 
-      var image = L.imageOverlay(rain, imageBounds).bringToFront();
+      var image = L.imageOverlay(rain, imageBounds).addTo(myMap);
 
       } 
       else {
 
-        var image = L.imageOverlay(sun, imageBounds).bringToFront();
+        var image = L.imageOverlay(sun, imageBounds).addTo(myMap);
 
     };
     return image.addTo(myMap);
