@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Rotten Apples</title>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <!-- Leaflet CSS & JS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.3/dist/leaflet.css"
+    integrity="sha512-Rksm5RenBEKSKFjgI3a41vrjkw4EVPlJ3+OiI65vTjIdo9brlAacEuKOiQ5OFh7cOI1bkDwLqdLw3Zg0cRJAAQ=="
+    crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.3.3/dist/leaflet.js"
+    integrity="sha512-tAGcCfR4Sc5ZP5ZoVz0quoZDYX5aCtEm/eu1KhSLj2c9eFrylXZknQYmxUssFaVJKvvc0dJQixhGjG2yXWiV9Q=="
+    crossorigin=""></script>
+
+    <!-- Our CSS -->
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+
+    <!-- Font Awesome-->
+    <script src="https://kit.fontawesome.com/835da98689.js" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+
+  <!-- API key -->
+  <script type="text/javascript" src="../js/config.js"></script>
+
+  <!-- header and navbar container -->
+  <div class="container">
+
+      <!-- create the navbar class -->
+      <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+
+          <!-- add title to the left on the bar -->
+          <a class="navbar-brand" href=""><i class="fas fa-gavel"></i></i> CRIME & WEATHER</a>
+
+          <!--drop down toggle button-->
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+
+              
+          
+                <!--add nav bar drop-down -->
+              
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Types of Crime<span class="caret"></span></a>
+
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                  <a class="dropdown-item" href="https://en.wikipedia.org/wiki/Burglary"> Burglary</a>
+
+                  <a class="dropdown-item" href="https://en.wikipedia.org/wiki/Larceny">Larceny</a>
+
+                  <a class="dropdown-item" href="https://en.wikipedia.org/wiki/Robbery">Robbery</a>
+
+                  <a class="dropdown-item" href="https://en.wikipedia.org/wiki/Assault#Aggravated_assault">Aggravated Assault</a>
+
+                  <a class="dropdown-item" href="https://en.wikipedia.org/wiki/Homicide">Homicide</a>
+
+                </div>             
+              </li>
+
+              <!-- adds links to the bar -->
+
+              <!-- <li class="nav-item mr-auto">
+                <a class="nav-link mr-auto" href="http://127.0.0.1:5500/data.html"></a>
+              </li> -->
+              <!-- <li class="nav-item mr-auto">
+                  <a class="nav-link mr-auto" href="http://127.0.0.1:5500/compares.html">Heatmap</a>
+                </li> -->
+
+            </ul>
+
+          </div>
+      </nav>
+
+      <!-- Webpage Header -->
+      <div class="header">
+        <div class="row">
+            <div class="col-md-12 jumbotron text-center">
+              <h1>Crime & Weather.</h1>
+              <hr>
+              <h4>Does bad weather bring out the bad apples? We investigate here.</h4>
+              <hr>
+            </div>
+          </div>    
+      </div>
+    </div>
+
+    <!-- Container to Hold our charts & content-->
+    <div class="container">
+
+      <!-- Describe our project -->
+      <div class="row">
+        <div class="col-lg-12">
+          <p>This project looks at crime and weather in Atlanta. We hypothesize that weather conditions impact the level of crime. We suggest that the impact weather has on crime is not consistent amongst all types of crime, with some crime increasing when weather conditions encourages individuals to stay home(domestic violence) and other crime decreases when weather conditions encourage individuals to leave the home (home burglary).</p>
+
+        </div>
+
+      </div>
+      <br>
+      <br>
+      <div class="row">
+        <div class="col-md-6 col-sm-3">
+         
+          <h3>When looking at all crimes and not individual types of crime, we found the below to be true:</h3>
+          <br>
+          <!-- <h5>All Crimes = .82*temperature + 5.62*percentage of rain that day</h5> -->
+
+          <h6>Results:</h6>
+          <p> When looking at the historical crime and weather data from 2009 – 2018, we find that on average, if temperature increases by 1 degree, we estimate crimes to increase by .82. Likewise, for every additional percent of rain there is a day, we estimate crimes to increase by 5.62 crimes. Both variables are highly significant, and our model has an adjusted R-square of .96. The closer R-square is to 1, the more of the relationship our model explains, this model explains a large portion of the relationship of crime to weather</p>
+        </div>
+
+        <!-- Crime Counter -->
+        <div class="col-md-6 col-sm-3">
+          <div class="card">
+            <p><i class="fas fa-exclamation-circle"></i></p>
+            <h4>Total Atlanta Crimes in 2020:</h3>
+            <p id="crimeCount"></p>
+          </div>
+         </div>
+
+      </div>
+
+      <br>
+      <!-- Birthday Weeks -->
+      <hr>
+      <div class="row">
+        <div class="col-md-12 col-md-6">
+          <h6>Choose a date below to see an example of ACTUAL CRIMES vs FORECASTED CRIMES based on our model.</h6>
+          <div class="well">
+            <h5>Please select a date from the drop down:</h5>
+            <select id="selBirthday"></select>
+          </div>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="col-md-12 col-md-6">
+          <div id="birthday"></div>       
+        </div>
+      </div>
+
+      <br>
+      <hr>
+      <!-- crime markermap -->
+      <div class="row">
+        <div class="col-md-12 col-md-6">
+          <h6>To see actual locations of specific crimes committed in Atlanta on a specific day in 2020, choose a date from the dropdown</h6>
+          <div class="well">
+            <h5>Select a Date:</h5>
+            <select id="selDate" onchange="buildMap(this.value)"></select>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-12">
+          <div id="map"></div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-12">
+          <div id="chart4"></div>
+        </div>
+      </div>
+
+
+    </div>
+
+
+
+    <!-- Plotly -->
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+    <!-- D3 JavaScript -->
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+
+    <!-- Our JavaScript-->
+    <!-- Crimemarkers -->
+    <script type="text/javascript" src="../js/crimemarkers_pullsDB.js"></script>
+
+    <!-- Birthdayweeks -->
+    <script type="text/javascript" src="../js/candice.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+
+</body>
+
+</html>
