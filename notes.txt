@@ -1,0 +1,90 @@
+Team Name: TheRottenApples
+
+Team Members
+	kamprat2@gmail.com
+	Georgia.e.leigh@gmail.com
+	ethan.martin95@gmail.com
+	balhoffk@gmail.com
+	sekkappa@gmail.com
+	Candice.sessa10@gmail.com
+
+
+Flask Application
+	https://young-beach-08773.herokuapp.com/
+
+
+Folder /raw_data 
+
+	This folder contains the source and intermediaet data
+	all_crime.csv - historical crime (brought in by Candice)
+	atl_weather.json - historical weather (brought in by Ethan)
+
+	Above CSV's can be pulled into java script if needed using the following API call's:
+		http://young-beach-08773.herokuapp.com/get_file?filename=raw_data/crime_weather.csv
+		http://young-beach-08773.herokuapp.com/get_file?filename=raw_data/weather_clean.csv
+		http://young-beach-08773.herokuapp.com/get_file?filename=raw_data/all_crime.csv
+		http://young-beach-08773.herokuapp.com/get_crime_count
+		http://young-beach-08773.herokuapp.com/get_crime_count/get_map_data
+
+		http://young-beach-08773.herokuapp.com/getdf?key=Ethan_Crime_Weather_Exploration
+
+Sample Code
+	Reading config file (code snippet)
+		import sys
+		sys.path.append("..")
+		from config import aws_key, aws_secret
+		from config import mongo_username, mongo_password, mongo_server_name
+		from config import postgres_server_name, postgres_database, postgres_username, postgres_port, postgres_password
+
+	Mongo DB Connection Sample Jupiter Notebook
+		sandbox/MongoReadwrite.ipynb
+	
+	Postgres Connection Sample Jupiter Notebook
+		code/Historical_Crime_Weather_Analysis_Template
+
+	Reading AWS S3
+		sandbox/LoadS3-Test.ipynb
+
+Config file entries:
+	aws_key = "?"
+	aws_secret = "?"
+	mongo_username = "?"
+	mongo_password = "?"
+	mongo_server_name = "?"
+	postgres_server_name = "?"
+	postgres_database = "?"
+	postgres_username = "?"
+	postgres_port = "?"
+	postgres_password = "?"
+
+HeroKu Postgres DB details
+	Host		:	ec2-52-70-15-120.compute-1.amazonaws.com
+	Database	:	d6hi5on1mbqdke
+	User		:	revuxevvjssnlm
+	Port		:	5432
+
+Mongo DB Details
+	Host:	cluster0-eyrv8.mongodb.net
+	Username: TheRottenApples
+	Password: gaTech2019
+
+Storing Data to Mongo
+	# write to mongo
+	import tra_functions as tralib
+	tralib.write_df_to_mongo_as_json("Ethan_Crime_Weather_Exploration", org_crime_temp_df)
+
+Work completed
+Kannan
+	-	Creation of Cloud Mongo DB
+	-	Creation of Cloud Postgres DB
+	-	Creation of Heroku Flask environment with procefile, requirements.txt etc
+	-	Creation and connection to Heroku Postgres DB
+	-	Creation of All_Crime table and import of data
+	-	Heroku DB upgrade
+	-	Data migrated
+	-	Application reconfigured
+
+Candice
+	-	Web Scrapping, cleaning of crime data
+
+

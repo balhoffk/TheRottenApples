@@ -1,0 +1,39 @@
+CREATE TABLE "TheRottenApples".all_crime
+(
+    "Index" integer  NOT NULL,
+    crime_type VARCHAR(60),
+    report_date VARCHAR(15),
+    "Beat" VARCHAR(10),
+    "Neigborhood" VARCHAR(60),
+    "NPU" VARCHAR(10),
+    lat decimal,
+    lon decimal,
+    PRIMARY KEY ("Index")
+);
+
+ALTER TABLE "TheRottenApples".all_crime
+    OWNER to revuxevvjssnlm;
+
+CREATE TABLE "TheRottenApples".hist_weather (
+	_id VARCHAR(30) PRIMARY KEY NOT NULL,
+	date_iso VARCHAR(30),
+	weather_id VARCHAR(30),
+	weather_group VARCHAR(30),
+	weather_icon VARCHAR(30),
+	temperature DECIMAL,
+	temp_min DECIMAL,
+	temp_max DECIMAL,
+	feels_like DECIMAL,
+	pressure INT,
+	humidity INT,
+	wind_speed DECIMAL,
+	cloud_percentage INT
+);
+
+ALTER TABLE "TheRottenApples".hist_weather
+    OWNER to revuxevvjssnlm;
+
+
+ALTER TABLE "TheRottenApples".all_crime SET SCHEMA public;
+ALTER TABLE "TheRottenApples".hist_weather SET SCHEMA public;
+
