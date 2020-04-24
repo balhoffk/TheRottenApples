@@ -30,7 +30,15 @@ window.addEventListener('load',()=>{
                     // console.log(data) to see the data and explore it.
                     // calling funtion to set Icon with respect to Open Weather API icon
                     crime = Math.round(temp*.83); 
-                    forecasted_crime = `${crime} total crimes in the ATL`;              
+                    if (crime < 50) {
+                        statement = "it's a good day to go outside";}
+                    else if (crime < 60){
+                        statement = "make sure to tell someone where you're going";}
+                    else {
+                        statement = "bring your pepper spray, it's dangerous out there.";}
+
+                    
+                    forecasted_crime = `There will be ${crime} estimated crimes in the ATL, ${statement}`;              
                     fDisplay.textContent = forecasted_crime
                     setIcon(data.current.weather[0].icon)
 
