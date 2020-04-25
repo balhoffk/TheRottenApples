@@ -28,6 +28,8 @@ Folder /raw_data
 
 		http://young-beach-08773.herokuapp.com/getdf?key=Ethan_Crime_Weather_Exploration
 
+		http://localhost:5000/getdf?key=Ethan_Crime_Weather_Exploration
+
 Sample Code
 	Reading config file (code snippet)
 		import sys
