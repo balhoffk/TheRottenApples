@@ -29,6 +29,10 @@ Folder /raw_data
 		http://young-beach-08773.herokuapp.com/getdf?key=Ethan_Crime_Weather_Exploration
 
 		http://localhost:5000/getdf?key=Ethan_Crime_Weather_Exploration
+		http://young-beach-08773.herokuapp.com/get_file?filename=raw_data/crime_weather_2020.csv
+
+		http://young-beach-08773.herokuapp.com/getdf?key=real_feel_over_time_small
+		
 
 Sample Code
 	Reading config file (code snippet)

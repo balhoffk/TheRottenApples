@@ -1,4 +1,4 @@
-Unnamed: 0,index,crime_type,date,Beat,Neigborhood,NPU,lat,lon,type_crime,year,temperature,percentage_rain,rain_indicator
+,index,crime_type,date,Beat,Neigborhood,NPU,lat,lon,type_crime,year,temperature,percentage_rain,rain_indicator
 83580,83580,LARCENY-FROM VEHICLE,2020-01-31,602.0,Inman Park,N,33.76163,-84.35038,LARCENY,2020,41.91333333333333,0.20833333333333331,1
 83581,83581,LARCENY-FROM VEHICLE,2020-01-31,602.0,Inman Park,N,33.76191,-84.36039,LARCENY,2020,41.91333333333333,0.20833333333333331,1
 83582,83582,LARCENY-FROM VEHICLE,2020-01-31,604.0,Sweet Auburn,M,33.75253,-84.3721,LARCENY,2020,41.91333333333333,0.20833333333333331,1

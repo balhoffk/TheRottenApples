@@ -161,8 +161,8 @@ def write_df_to_mongo_as_json(key, df_data):
 	collection = client.TheRottenApples.Pandas
 	packaged_data = df_data.to_json()
 	collection.delete_many({'name': key})
-	collection.insert_one({'name': key, 'data': jsonify(packaged_data)})
-
+	# collection.insert_one({'name': key, 'data': jsonify(packaged_data)})
+	collection.insert_one({'name': key, 'data': packaged_data})
 
 def read_df_from_mongo_as_json(key):
     conn_str = f'mongodb+srv://{mongo_username}:{mongo_password}@{mongo_server_name}/test?retryWrites=true&w=majority'
