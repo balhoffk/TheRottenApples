@@ -110,6 +110,9 @@
       </div>
       <br>
       <br>
+      
+
+
       <div class="row">
         <div class="col-md-6 col-sm-3">
          
@@ -121,6 +124,39 @@
           <p> When looking at the historical crime and weather data from 2009 – 2018, we find that on average, if temperature increases by 1 degree, we estimate crimes to increase by .82. Likewise, for every additional percent of rain there is a day, we estimate crimes to increase by 5.62 crimes. Both variables are highly significant, and our model has an adjusted R-square of .96. The closer R-square is to 1, the more of the relationship our model explains, this model explains a large portion of the relationship of crime to weather</p>
         </div>
 
+        <!-- Crime Forecast -->
+        <div class="col-md-6 col-sm-3">
+          <div class="card">
+              <div class="location">
+                <h1 class="location-timezone" style = text-align:center>
+                    ATLANTA
+                </h1>
+                
+
+
+            </div>
+
+            <img src="" alt="Loading...." class='icon-weather' >
+
+            <div class="temperature">
+                <div class="degree-section">    
+                    <h2 class="temperature-degree">Loading....</h2>
+
+                </div>
+                <div class="temperature-description">Loading....</div>
+            </div>
+
+            <br>
+            <div class = "crime_forecast">
+                <h2>Forecasted Crime:</h2>
+                <h4 class = "fcast" style = text-align:center></h4>
+              </div>
+          </div>
+         </div>
+
+      </div>
+
+      <br>
         <!-- Crime Counter -->
         <div class="col-md-6 col-sm-3">
           <div class="card">
@@ -130,8 +166,6 @@
             <p id="asOfDate"></p>
           </div>
          </div>
-
-      </div>
 
       <br>
       <!-- Birthday Weeks -->
@@ -195,11 +229,15 @@
     <!-- Birthdayweeks -->
     <script type="text/javascript" src="../js/candice.js"></script>
 
+    <!-- Crime Forecast -->
+    <script type="text/javascript" src="../Weather_app/app.js"></script>
+
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
 
 
 </body>

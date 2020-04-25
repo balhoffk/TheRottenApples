@@ -59,7 +59,7 @@ h6 {
   }
 
 
-  /* Style the counter cards */
+  /* Style the cards */
 .card {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   padding: 16px;
@@ -79,4 +79,10 @@ h6 {
   font-size: 50px
 }
 
+img.icon-weather {
+  align-self: center;
+}
 
+.fcast {
+  font-size: 18px;
+}
