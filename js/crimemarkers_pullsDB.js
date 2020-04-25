@@ -1,7 +1,7 @@
 ///////////////////CRIME COUNTER/////////////////////
 // 1. CREATE THE 2020 CRIME COUNTER
 ////path to the DB
-var path = "http://young-beach-08773.herokuapp.com/get_file?filename=raw_data/crime_weather.csv"
+var path = "http://young-beach-08773.herokuapp.com/get_file?filename=raw_data/crime_weather_2020.csv"
 
 //read in the crimes and count each one for 2020
 d3.csv(path).then((data) => {
@@ -21,6 +21,28 @@ d3.csv(path).then((data) => {
   d3.selectAll("#crimeCount").text(crimeCount);
 });
 
+// 2. ADD IN "UPDATED AS OF" TO TOTAL CRIMES
+//read in the crimes and count each one for 2020
+var updatedDates = []
+d3.csv(path).then((data) => {
+  // sort the dates so you get the most recent date on top
+  data.forEach((date) => {
+    var dates = date.date.replace(/-/g,"")
+    updatedDates.push(parseInt(dates));
+  });
+
+  var recentDate = updatedDates.sort((a, b) => b-a).slice(0,1);
+
+  // recentDate = toString(recentDate);
+  console.log(recentDate);
+  recentDate = toString(recentDate);
+  console.log(recentDate);
+
+  recentDate = recentDate.slice(0-5)+"/"+recentDate.slice(5-7)+"/"+recentDate.slice(7-9);
+
+  console.log(recentDate);
+  });
+
 
 
 
@@ -29,7 +51,7 @@ d3.csv(path).then((data) => {
 ///////////////////CRIME MAP////////////////////////
 // 1. CREATE THE DATE DROPDOWN
 //path to the csv
-var path = "http://young-beach-08773.herokuapp.com/get_file?filename=raw_data/crime_weather.csv"
+var path = "http://young-beach-08773.herokuapp.com/get_file?filename=raw_data/crime_weather_2020.csv"
 //create the empty drop-down array for the dates
 var dropdownDates = []
 //create the drop down with all of the dates so you can choose to look at a single day of data by year
@@ -81,13 +103,13 @@ L.tileLayer("https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={
 // 3. CREATE chooseMarker FUNCTION WHICH DETERMINES THE COLOR MARKER FOR EACH CRIMEON THE MAP
 function chooseMarker(crime) {
   switch (crime) {
-    case "larceny":
+    case "LARCENY":
       return "pink";
     case "AUTO THEFT":
       return "red";
-    case "robbery":
+    case "ROBBERY":
       return "orange";
-    case "burglary":
+    case "BURGLARY":
       return "black";
     case "HOMICIDE":
       return "purple";
@@ -131,15 +153,18 @@ d3.selectAll("#selDate").on("change", buildMap);
 
 // 6. CREATE THE buildMap FUNCTION TO RUN WHEN A DROPDOWN ITEM IS SELECTED
 function buildMap() {
+
   //reset the dropdownDate to nothing everytime a change is made to the filter
   var dropdownDate = "";
+
   //clear the markers from the table everytime a change is made to the filter
   d3.selectAll("path").remove();
   d3.selectAll(".leaflet-image-layer").remove();
-  //grab the dropdown value selected for our data filter
+
+  //grab the dropdown value selected by the user for our data filter
   dropdownDate = d3.select("#selDate").property("value");
 
-  var path = "http://young-beach-08773.herokuapp.com/get_file?filename=raw_data/crime_weather.csv";
+  var path = "http://young-beach-08773.herokuapp.com/get_file?filename=raw_data/crime_weather_2020.csv";
 
   d3.csv(path).then(function(data) {
 
@@ -150,18 +175,17 @@ function buildMap() {
     }
 
 
-
     //filter on the date to narrow down the data
     data = data.filter(filterDates);
     
-
     
+    //CREATE MARKERS:
     //loop through the data and create a marker for each crime on the Atlanta map
     data.forEach(function(crime) {
       //create the markers
       L.circleMarker([crime.lat, crime.lon], {
         radius: 13,
-        fillColor: chooseMarker(crime.combo_crime),
+        fillColor: chooseMarker(crime.type_crime),
         color: "white",
         fillOpacity: .75,
         weight: 2
@@ -189,12 +213,12 @@ function buildMap() {
 
 
         //bind the popup to each marker
-        .bindPopup("<h1>" + crime.combo_crime + "</h1><hr><h3> Location: "+crime.Neigborhood +"</h3><hr><h3> High Temperature(F): "+Math.round(crime.temperature,0)+"</h3><hr><h3>Date: "+crime.date+"</h3>")
+        .bindPopup("<h1>" + crime.type_crime + "</h1><hr><h3> Location: "+crime.Neigborhood +"</h3><hr><h3> High Temperature(F): "+Math.round(crime.temperature,0)+"</h3><hr><h3>Date: "+crime.date+"</h3>")
 
         .addTo(myMap)
-
-
       });
+      
+    //WEATHER ICON TO MAP BASED ON RAIN
     //Add on the weather icon to indicate if it is sunny or rainy that day
     //store the icon paths
     var rain = "../images/sad-rain.png";
@@ -205,7 +229,7 @@ function buildMap() {
     //determine which icon to add based on rain or sun
     // data.forEach(function(crime) {
     //pull the rain percentage number for the sun or rain icon
-    rainOrShine = data[0].rainy;
+    rainOrShine = data[0].percentage_rain;
     console.log(rainOrShine);
 
     if (rainOrShine > .5) {
