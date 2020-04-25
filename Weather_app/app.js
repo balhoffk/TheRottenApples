@@ -24,7 +24,7 @@ window.addEventListener('load',()=>{
                     
                     // const {timezone} = data;
                     // Setting up the DOM elements.
-                    temperatureDisplay.textContent = temp;
+                    temperatureDisplay.textContent = temp +"  °F"
                     temperatureDiscription.textContent = data.current.weather[0].description.toUpperCase();
                     //timezoneDisplay.textContent = timezone;
                     // console.log(data) to see the data and explore it.
