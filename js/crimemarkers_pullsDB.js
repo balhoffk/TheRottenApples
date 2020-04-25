@@ -27,20 +27,21 @@ var updatedDates = []
 d3.csv(path).then((data) => {
   // sort the dates so you get the most recent date on top
   data.forEach((date) => {
+    //remove the dash in the date so you have just the number and sort based on that to get the most recent date
     var dates = date.date.replace(/-/g,"")
     updatedDates.push(parseInt(dates));
   });
-
+  //slice the most recent date
   var recentDate = updatedDates.sort((a, b) => b-a).slice(0,1);
 
-  // recentDate = toString(recentDate);
-  console.log(recentDate);
-  recentDate = toString(recentDate);
-  console.log(recentDate);
+  //convert the date back to string sand add back the dashes
+  recentDate = String(recentDate[0]);
 
-  recentDate = recentDate.slice(0-5)+"/"+recentDate.slice(5-7)+"/"+recentDate.slice(7-9);
+  var latestCrimeDate = +recentDate.slice(4,6) + "/" + recentDate.slice(6,8) +"/"+ recentDate.slice(0,4);
 
-  console.log(recentDate);
+  console.log(latestCrimeDate);
+
+  d3.selectAll("#asOfDate").text("Updated as of "+latestCrimeDate)
   });
 
 
