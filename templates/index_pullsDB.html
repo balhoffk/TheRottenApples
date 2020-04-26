@@ -90,7 +90,7 @@
             <div class="col-md-12 jumbotron text-center">
               <h1>Crime & Weather.</h1>
               <hr>
-              <h4>Does bad weather bring out the bad apples? We investigate here.</h4>
+              <h4>Does bad weather bring out the bad apples? We investigate here.</h4> 
               <hr>
             </div>
           </div>    
@@ -120,6 +120,8 @@
 
           <h6>RESULTS: There is a correlation between weather and crime</h6>
           <p> When looking at the historical crime and weather data from 2009 – 2018, we find that on average, if temperature increases by 1 degree, we estimate crimes to increase by .82. Likewise, for every additional percent of rain there is a day, we estimate crimes to increase by 5.62 crimes. Both variables are highly significant, and our model has an adjusted R-square of .96. The closer R-square is to 1, the more of the relationship our model explains, this model explains a large portion of the relationship of crime to weather</p>
+
+          <p>Using our model, we are able to forecast the number of crimes that will be committed in Atlanta based on temperature and rain predicted.</p>
         </div>
 
         <!-- Crime Forecast -->
@@ -130,8 +132,6 @@
                     ATLANTA
                 </h1>
                 
-
-
             </div>
 
             <img src="" alt="Loading...." class='icon-weather' >
@@ -156,6 +156,12 @@
 
       <br>
         <!-- Crime Counter -->
+        <div class="row">
+        <div class="col-md-6 col-sm-3">
+          <br><br><br><br>
+          <h2>2020 Crime Counter</h2>
+          <p>Our crime counter looks at all reported crime in the city of Atlanta in 2020, as of the latest data provided by the city of Atlanta.</p>
+         </div>
         <div class="col-md-6 col-sm-3">
           <div class="card">
             <p><i class="fas fa-exclamation-circle"></i></p>
@@ -164,13 +170,14 @@
             <p id="asOfDate"></p>
           </div>
          </div>
-
+        </div>
       <br>
       <!-- Birthday Weeks -->
       <hr>
       <div class="row">
         <div class="col-md-12 col-md-6">
-          <h6>Choose a date below to see an example of ACTUAL CRIMES vs FORECASTED CRIMES based on our model.</h6>
+          <h2>Predicted Crime vs Actual Crime</h2>
+          <p>Choose a date from the dropdown below to see a week of actual crimes commited vs forecasted crimes based on our model.</p>
           <div class="well">
             <h5>Please select a date from the drop down:</h5>
             <select id="selBirthday"></select>
@@ -186,10 +193,12 @@
 
       <br>
       <hr>
+
       <!-- crime markermap -->
       <div class="row">
         <div class="col-md-12 col-md-6">
-          <h6>To see actual locations of specific crimes committed in Atlanta on a specific day in 2020, choose a date from the dropdown</h6>
+          <h2>Weather vs Crime on a Specific Day</h2>
+          <p>To see actual locations of specific crimes committed in Atlanta on a day 2020, choose a date from the dropdown. An icon will appear in the top right of the graph to indicate if it was more sunny or more rainy on that day.</p>
           <div class="well">
             <h5>Select a Date:</h5>
             <select id="selDate" onchange="buildMap(this.value)"></select>
@@ -204,14 +213,58 @@
       </div>
 
       <hr>
+
+
       <!-- Weather vs Crime over Time -->
-      <div class="row">
-        <div class="col-md-12">
-          <div id="graphOverTime"></div>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <h2>Weather vs Crime Over Time</h2>
+            <br>
+            <p>The graph below shows crimes committed vs a specific weather metric over the span of 10 years. Choose a metric from the Crime and Weather dropdowns to see the correlation over time of weather and crime</p>
+            <br>
+
+          </div>
+
         </div>
-      </div>
+        <div class="row" id="option_select">
+            <div class="col-md-2">
+                <div class="well">
+                    <h5>Weather Metric:</h5>
+                    <select id="selDatasetOne">
+                        <option value="real_feel">Real Feel</option>
+                        <option value="temp">Temperature</option>
+                        <option value="rain_percentage">Rain Percentage</option>
+                        <option value="cloud_percentage" selected>Cloud Percentage</option>
+                    </select>
+                </div>
+
+            </div>
+            <div class="col-md-2">
+                <div class="well">
+                    <h5>Crime Metric:</h5>
+                    <select id="selDatasetTwo">
+                        <option value="personal_crime">Personal Crime</option>
+                        <option value="all_crime">All Crime</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-md-1">
+                <div id="submit_botton">
+                    <button type="button" onclick="buildChart()">Submit</button>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div id="line_chart"></div>
+            </div>
+        </div>
+    </div>      
+    <div id="plot"></div>
 
 
+    
     </div>
 
 
@@ -223,14 +276,18 @@
     <script src="https://d3js.org/d3.v5.min.js"></script>
 
     <!-- Our JavaScript-->
-    <!-- Crimemarkers -->
-    <script type="text/javascript" src="../js/crimemarkers_pullsDB.js"></script>
-
     <!-- Birthdayweeks -->
     <script type="text/javascript" src="../js/candice.js"></script>
 
+    <!-- Crimemarkers -->
+    <script type="text/javascript" src="../js/crimemarkers_pullsDB.js"></script>
+
+
     <!-- Crime Forecast -->
     <script type="text/javascript" src="../Weather_app/app.js"></script>
+
+    <!-- Crime vs Weather over time -->
+    <script type="text/javascript" src="../js/ethan3.js"></script>
 
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
 

@@ -82,6 +82,7 @@ function draw_plot(data1, data2) {
         name: 'Weather Data',
         type: 'scatter',
         mode: "lines",
+        line: {color: "red"}
     };
     var trace2 = {
         x: data2.x[0],
@@ -90,6 +91,7 @@ function draw_plot(data1, data2) {
         yaxis: 'y2',
         type: 'scatter',
         mode: "lines",
+        line: {color: "blue"}
     };
 
     console.log(trace1);
