@@ -34,3 +34,6 @@ coordinates.net/gps-coordinates-converter
    1. https://openweathermap.org/api/forecast30
 
 
+## Project: 
+<h3>Architectural Diagram</h3>
+<img src = "/images/TheRottenApples.png" width = "500" height = "250">
