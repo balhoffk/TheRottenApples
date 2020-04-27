@@ -295,7 +295,66 @@
     
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 
+      <hr>
+      <div class="row">
+       <div class="col-md-12 col-md-6">
+         <h2>Creation of the Crime Forecast Model and Overview of Types of Crime in Analysis</h2>
+         <p>The Atlanta Police Department collects and distributes data on several different kinds of crime that is recorded on a weekly basis. For the purposes of this exercise, we have simplified the data into 5 separate categories of crime, though there is a fair amount of overlap which may occur for these different types of crime. Below is a high level overview of the different types of crime which are included in this analysis, as well as some background on the regressions used to calculate the crime forecast.</p>
+        
+        <h3>Summary</h3>
+        <ul>
+          <li>There are 5 types of crime included in our "Total Crime" regressions.</li>
+          <li>The formula used to predict the total number of crimes each day is All Crimes = (0.82 * Temperature) + (5.62 * percentage of precipitation on given day)</li>
+          <li>When looking at the historical crime and weather data from 2009 – 2018, we find that on average, if temperature increases by 1 degree, the total number of crimes that day increases by 0.82</li>
+          <li>Likewise, for every additional percent of rain there is a day, the number of crimes that occur that day increases by 5.62.</li>
+          <li>Both variables are highly significant, and our model has an adjusted R-square of 0.96. The closer this number is to 1, the more of the relationship our model explains, and this model explains a large portion of the relationship of crime to weather.</li>
+        </ul>
+        
+        <h3>Larceny</h3>
+          <li>Larceny, which is often called theft or petty theft, is the taking of another person’s possession without their consent, with the intent to never return the possession. A common example of larceny include shoplifting. This can also include the theft of money or other physical goods.</li>
+          <li>The formula used to predict the total number of larcenies each day is Larceny = (0.51 * Temperature) + (4.27 * percentage of precipitation on given day)</li>
+          <li>When looking at the historical crime and weather data from 2009 – 2018, we find that on average, if temperature increases by 1 degree, the total number of larcenies that day increases by 0.51</li>
+          <li>Likewise, for every additional percent of rain there is a day, the number of larcenies that occur that day increases by 4.27.</li>
+          <li>Both variables are highly significant, and our model has an adjusted R-square of 0.94. Larceny accounts for over half of all crimes, so it is expected to have similar outcomes to the aggregated, all crime, regression</li>
+        </ul>
 
+        <h3>Robbery</h3>
+          <li>Robbery is another form of theft, but it involves taking an item from an individual without their consent while using force or the threat of force. While robbery is a violent crime, it does not necessarily include physical harm, as it can also include taking property under the threat of violence. An example of robbery would include robbing a store at gunpoint.</li>
+          <li>The formula used to predict the total number of robberies each day is Robbery = (0.38 * Temperature) + (0.69 * percentage of precipitation on given day)</li>
+          <li>When looking at the historical crime and weather data from 2009 – 2018, we find that on average, if temperature increases by 1 degree, the total number of robberies that day increases by 0.38</li>
+          <li>Likewise, for every additional percent of rain there is a day, the number of robberies that occur that day increases by 0.69.</li>
+          <li>Both variables are highly significant, and our model has an adjusted R-square of 0.84. While our coefficients are significant, their values are much smaller than that of our other models. This suggests that while there is a positive relationship with temperature and robberies, there may be other factors that influence robberies aside from the weather.</li>
+        </ul>
+
+        <h3>Burglary</h3>
+          <li>Burlary is another crime which involves theft, but in order to commit a burglary you must enter a dwelling or a structure (or demonstrate the intention to enter a dwelling or structure) with the intention of committing the crime within that structure. A common example of a burglary would be breaking into a person’s home or apartment.</li>
+          <li>The formula used to predict the total number of burglaries each day is Burglary = (0.093 * Temperature) + (0.585 * percentage of precipitation on given day)</li>
+          <li>When looking at the historical crime and weather data from 2009 – 2018, we find that on average, if temperature increases by 1 degree, the total number of burglaries that day increases by 0.093</li>
+          <li>Likewise, for every additional percent of rain there is a day, the number of burglaries that occur that day increases by 0.585.</li>
+          <li>While temperature is significant, the percentage of rain is not. Our model has an adjusted R-square of 0.90.</li>
+        </ul>
+        
+        <h3>Auto Theft</h3>
+          <li>Auto theft includes the unauthorized taking of another person’s car with the intent to permanently deprive the owner of the use of their vehicle.</li>
+          <li>The formula used to predict the total number of auto thefts each day is Auto Theft = (0.01 * Temperature) + (1.48 * percentage of precipitation on given day)</li>
+          <li>When looking at the historical crime and weather data from 2009 – 2018, we find that on average, if temperature increases by 1 degree, the total number of auto thefts that day increases by 0.01</li>
+          <li>Likewise, for every additional percent of rain there is a day, the number of auto thefts that occur that day increases by 1.48.</li>
+          <li>Both variables are highly significant, and our model has an adjusted R-square of 0.88.</li>
+        </ul>
+        <h3>Homicide</h3>
+          <li>Homicide, commonly referred to as murder, involves the deliberate and unlawful killing of one person by another. Homicides can fall into many legal categories, and can also include justfiable homicide and manslaughter.</li>
+          <li>The formula used to predict the total number of homicides each day is Homicide = (0.013 * Temperature) + (0.18 * percentage of precipitation on given day)</li>
+          <li>When looking at the historical crime and weather data from 2009 – 2018, we find that on average, if temperature increases by 1 degree, the total number of homicides that day increases by 0.013</li>
+          <li>Likewise, for every additional percent of rain there is a day, the number of homicides that occur that day increases by 0.18.</li>
+          <li>Both variables are highly significant, and our model has an adjusted R-square of 0.88. Like our robberies model, our explanatory variables are significant but close to 0. This suggests that there may be more factors aside from temperature and percentage of rain that explain the levels of robberies and homicide in Atlanta.</li>
+        </ul>
+        <h3>Aggravated Assault</h3>
+          <li>Aggravated assault is an attempt to cause serious bodily harm to an individual with disregard for human life. These crimes often involve the use of a weapon, or significant malicious intent.</li>
+          <li>The formula used to predict the total number of aggravated assaults each day is Aggravated Assault = (0.07 * Temperature) - (0.47 * percentage of precipitation on given day)</li>
+          <li>When looking at the historical crime and weather data from 2009 – 2018, we find that on average, if temperature increases by 1 degree, the total number of aggravated assaults that day increases by 0.07</li>
+          <li>Likewise, for every additional percent of rain there is a day, the number of aggravated assaults that occur that day decreases by 0.47.</li>
+          <li>Both variables are highly significant, and our model has an adjusted R-square of 0.84. Aggravated assault is the only metric that shows a negative relationship with precipitation, with fewer assaults occurring on more rainy days.</li>
+      </ul>
 
 </body>
 
