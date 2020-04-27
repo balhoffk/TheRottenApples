@@ -31,7 +31,7 @@ Folder /raw_data
 		http://localhost:5000/getdf?key=Ethan_Crime_Weather_Exploration
 		http://young-beach-08773.herokuapp.com/get_file?filename=raw_data/crime_weather_2020.csv
 
-		http://young-beach-08773.herokuapp.com/getdf?key=real_feel_over_time_small
+		http://young-beach-08773.herokuapp.com/getdf?key=real_feel_over_time
 		
 
 Sample Code
@@ -72,7 +72,7 @@ HeroKu Postgres DB details
 Mongo DB Details
 	Host:	cluster0-eyrv8.mongodb.net
 	Username: TheRottenApples
-	Password: gaTech2019
+	Password: ??
 
 Storing Data to Mongo
 	# write to mongo
