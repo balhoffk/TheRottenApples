@@ -5,6 +5,7 @@
 
 ## Team Members
 Jackie Kamprath | Kevin Balhoff | Kannan Sekkappan | Ethan Martin | Candice Sessa | Georgia Leigh
+<img src = "/images/RottenApplesLogo.png" width = "500" height = "250">
 
 ## Thesis
 We hypothesize that weather conditions impact the level of crime. We suggest that the impact weather has on crime is not consistent amongst all types of crime, with some crime increasing when weather conditions encourages individuals to stay home(domestic violence) and other crime decreases when weather conditions encourage individuals to leave the home (home burglary)
