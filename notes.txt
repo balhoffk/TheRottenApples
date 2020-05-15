@@ -8,6 +8,12 @@ Team Members
 	sekkappa@gmail.com
 	Candice.sessa10@gmail.com
 
+S3 Web site
+	http://the-rotten-apples.s3-website-us-east-1.amazonaws.com/
+	http://ks-test-april.s3-website-us-east-1.amazonaws.com/
+	http://titanic-floats-the-ml-kings.s3-website-us-east-1.amazonaws.com/
+
+
 
 Flask Application
 	https://young-beach-08773.herokuapp.com/

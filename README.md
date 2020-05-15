@@ -35,6 +35,21 @@ coordinates.net/gps-coordinates-converter
    1. https://openweathermap.org/api/forecast30
 
 
+## Our Applications: 
+Our website (using aws s3):
+	http://the-rotten-apples.s3-website-us-east-1.amazonaws.com/
+Git Hub Project 
+	https://github.com/balhoffk/TheRottenApples
+Our Nginx website (may be offline):
+	http://3.85.57.104/
+Our API server:
+	http://young-beach-08773.herokuapp.com
+HeroKu Postgres DB Host
+	ec2-52-70-15-120.compute-1.amazonaws.com 
+Mongo DB Details Host
+	cluster0-eyrv8.mongodb.net
+
+
 ## Project: 
 <h3>Architectural Diagram</h3>
 <img src = "/images/TheRottenApples.png" width = "500" height = "250">
