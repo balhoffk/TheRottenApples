@@ -339,18 +339,30 @@
           <hr>
           <div class="row">
             <div class="col-md-12 col-md-6">
+              <h2>Project Architecture</h2>
+              <p>The diagram below gives a high level overview of the data sources we used, and how we connected them together within the project flow. The application is completely hosted on the cloud, connecting the web server (nginx), API Server (Flask), Postgres DB, and Mongo DB. Apart from real-time updating weather data, we also used large historical databases for crime data (349,030 entries) and weather (98,592 entries), which we loaded into Postgres DB. We then loaded the processed data into Mongo DB to use for the visualizations above.</p>
+              <br>
+                <img src="images/TheRottenApples.png" alt="TheRottenApples" width="1160" height="906">
+              <br>
+            </div>
+          </div>
+          
+          <hr>
+          <br>
+          <div class="row">
+            <div class="col-md-12 col-md-6">
               <h2>Project Process and Complications Along the Way</h2>
               <p>Initially, our team was excited to work with data related to movie going patrons, and how much more likely people were to go to movies based on the weather. Does a rainy day typically increase the relative spending at local theaters? Unfortunately, due to COVID-19, movie-going data has experienced some significant variability of late. This led to the natural transition of our team from “The Rotten Tomatoes” to “The Rotten Apples”, showing how weather impacts crime rates.</p>
               <ul>
-                <li>When looking at the forecasted data for Atlanta’s weather, if there was a 0 percent chance of rain, it just didn’t include any data at all. We had to create a conditional argument to show if there was going to be rain that day or not by converting it to value of 0 or 1 and then took the average of the 3-hour intervals for that day to determine the percent chance of rain.</li>
-                <li>Flask CORS security issue.</li>
+                <li>When looking at the forecasted data for Atlanta’s weather, if there was a 0 percent chance of rain, it didn’t include any data at all. We had to create a conditional argument to show if there was going to be rain that day or not by converting it to value of 0 or 1 and then took the average of the 3-hour intervals for that day to determine the percent chance of rain.</li>
+                <li>We encountered a security issue that we solved using flask_CORS.</li>
                 <li>GIT hub issue with merge conflicts.</li>
-                <li>Large file issue. Used AWS S3 to store data.</li>
-                <li>The issue in storing data Pandas data frame date field in Mongo. The date went into the systems Unix date-time #.</li>
-                <li>D3 JSON accessing multiple API calls. Coordination between calls.</li>
-                <li>Database size issue with the Trial DB only allowing a limited number of entries. We fixed the issues in two ways.</li>
-                <li>We had an issue with index,html in the wrong folder.  When we moved it around things broke and we had to fix all the pointers.</li>
-                <li>Issue with github page. API calls would not work since we did not upload the API Keys.  Therefore, we had to launch a nginx web server in AWS for our web site.</li>
+                <li>Due to the large size of our files, we used AWS S3 to store data.</li>
+                <li>We encountered some issues storing data Pandas dataframe date field in Mongo. The date went into the systems Unix date-time #.</li>
+                <li>Since we had multiple API calls occuring, we had issues with D3 JSON accessing multiple API calls. We were able to coordinate between calls.</li>
+                <li>Database size issue with the Trial DB only allowing a limited number of entries. We fixed the issues in two ways. The first way was that we purchased a heroku license to expand the count of records for Postgres database. For Mongo DB, we reduced the number of records we were using.</li>
+                <li>We had an issue with index.html in the wrong folder.  When we moved it around things broke and we had to fix all the pointers.</li>
+                <li>Issue with github page. API calls would not work since we did not upload the API Keys. Therefore, we had to launch a nginx web server in AWS for our web site.</li>
               </ul>
               <br>
                 <img src="images/FinalTeamLogosmall.PNG" alt="TheRottenApples">
@@ -358,15 +370,7 @@
             </div>
           </div>
 
-          <!--
-          <div class="row">
-            <div class="col-md-12 col-md-6">
-              <br>
-                <img src="images/TheRottenApples.png" alt="TheRottenApples">
-              <br>
-            </div>
-          </div>
-          -->
+          
 
     <!-- Plotly -->
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
