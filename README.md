@@ -36,18 +36,18 @@ coordinates.net/gps-coordinates-converter
 
 
 ## Our Applications: 
-Our website (using aws s3):
-	http://the-rotten-apples.s3-website-us-east-1.amazonaws.com/
-Git Hub Project 
-	https://github.com/balhoffk/TheRottenApples
-Our Nginx website (may be offline):
-	http://3.85.57.104/
-Our API server:
-	http://young-beach-08773.herokuapp.com
-HeroKu Postgres DB Host
-	ec2-52-70-15-120.compute-1.amazonaws.com 
-Mongo DB Details Host
-	cluster0-eyrv8.mongodb.net
+1. Our website (using aws s3):
+	1. http://the-rotten-apples.s3-website-us-east-1.amazonaws.com/
+1. Git Hub Project 
+	1. https://github.com/balhoffk/TheRottenApples
+1. Our Nginx website (may be offline):
+	1. http://3.85.57.104/
+1. Our API server:
+	1. http://young-beach-08773.herokuapp.com
+1. HeroKu Postgres DB Host
+	1. ec2-52-70-15-120.compute-1.amazonaws.com 
+1. Mongo DB Details Host
+	1. cluster0-eyrv8.mongodb.net
 
 
 ## Project: 
